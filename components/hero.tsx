@@ -132,7 +132,7 @@ export function Hero({ profile }: HeroProps) {
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="p-3 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors relative z-10"
               aria-label="GitHub"
             >
               <Github className="h-5 w-5" />
@@ -141,14 +141,14 @@ export function Hero({ profile }: HeroProps) {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="p-3 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors relative z-10"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className="p-3 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="p-3 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors relative z-10"
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />

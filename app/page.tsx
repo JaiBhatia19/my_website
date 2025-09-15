@@ -76,9 +76,14 @@ export default function HomePage() {
         />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-card rounded-lg p-6 border">
+          <a 
+            href={githubData?.recentActivity?.[0]?.url || 'https://github.com/JaiBhatia19'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer"
+          >
             <div className="flex items-center space-x-3 mb-3">
-              <Github className="h-5 w-5 text-primary" />
+              <Github className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold">Latest Commit</h3>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -90,22 +95,32 @@ export default function HomePage() {
                 : '2 hours ago'
               }
             </p>
-          </div>
+          </a>
           
-          <div className="bg-card rounded-lg p-6 border">
+          <a 
+            href="https://www.linkedin.com/in/jaibhatia19/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer"
+          >
             <div className="flex items-center space-x-3 mb-3">
-              <Linkedin className="h-5 w-5 text-primary" />
+              <Linkedin className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold">Recent Post</h3>
             </div>
             <p className="text-sm text-muted-foreground">
               &ldquo;{linkedinData?.recentPosts?.[0] || 'The future of QA is AI-powered, but human insight remains irreplaceable'}&rdquo;
             </p>
             <p className="text-xs text-muted-foreground mt-2">1 day ago</p>
-          </div>
+          </a>
           
-          <div className="bg-card rounded-lg p-6 border">
+          <a 
+            href={githubData?.projects?.[0]?.url || 'https://github.com/JaiBhatia19'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer"
+          >
             <div className="flex items-center space-x-3 mb-3">
-              <TrendingUp className="h-5 w-5 text-primary" />
+              <TrendingUp className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold">Project Update</h3>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -117,7 +132,7 @@ export default function HomePage() {
                 : '3 days ago'
               }
             </p>
-          </div>
+          </a>
         </div>
       </Section>
 
@@ -150,7 +165,7 @@ export default function HomePage() {
             </h3>
             <div className="flex flex-wrap gap-2">
               {profile.additionalSkills?.frameworks?.map((skill: string, index: number) => (
-                <span key={index} className="px-3 py-1 bg-accent/10 text-accent-foreground text-sm rounded-full">
+                <span key={index} className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">
                   {skill}
                 </span>
               ))}
