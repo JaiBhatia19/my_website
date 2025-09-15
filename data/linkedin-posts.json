@@ -1,64 +1,57 @@
 {
   "posts": [
     {
-      "id": "1757974656732",
-      "content": "Test post for my website",
-      "type": "post",
-      "date": "2025-09-15",
-      "hasComment": true
-    },
-    {
       "id": "1",
-      "content": "The future of QA is AI-powered, but human insight remains irreplaceable",
+      "content": "Finally launching SignalNote 🚀 - Turns messy customer feedback into clear next steps. Upload CSV, DOCX, TXT, JSON, or RTF and get AI-powered themes, sentiment, urgency, and clustering in seconds.",
       "type": "post",
       "date": "2025-09-15",
       "hasComment": true
     },
     {
       "id": "2",
-      "content": "Building AI tools that actually solve real problems, not just demos",
+      "content": "Everyone's hyped about AI, but Olivia Gambelin's talk on 'Elevating the Human in the Equation: Responsible Testing in the Age of AI' was a good reminder that real progress still comes from humans making smart, responsible choices.",
       "type": "post",
       "date": "2025-09-14",
       "hasComment": true
     },
     {
       "id": "3",
-      "content": "The best solutions come from understanding both the tech and the business",
+      "content": "I said 'It doesn't work.' Chatbot said 'Glad I could assist you.' Turns out, language modeling without grounding is just vibes at scale. The real frontier isn't bigger models, it's models that understand.",
       "type": "post",
       "date": "2025-09-13",
       "hasComment": true
     },
     {
       "id": "4",
-      "content": "Turning customer feedback into actionable product signals with AI",
+      "content": "Last week, I spent the afternoon at Amazon Web Services Q Builder Day in Los Angeles, CA. We got hands-on with Amazon Q Business and Q Index, built GenAI assistants, and explored how ISVs can securely bring AI into their products.",
       "type": "post",
       "date": "2025-09-12",
       "hasComment": true
     },
     {
       "id": "5",
-      "content": "Why every sales engineer should learn to code - it changes how you solve problems",
+      "content": "Met Jason Huggins today, the founder of Selenium and a legend in the testing world. Always inspiring to connect with the pioneers who built the tools we use every day.",
       "type": "post",
       "date": "2025-09-11",
       "hasComment": true
     },
     {
       "id": "6",
-      "content": "Just shipped SignalNote - AI that transforms customer feedback into product signals",
+      "content": "The Hidden Truth About Test Automation That No One's Talking About: Most teams abandon test automation after spending months and seeing no ROI. The fix? Democratizing test creation with no-code approaches that empower manual testers.",
       "type": "post",
       "date": "2025-09-10",
       "hasComment": true
     },
     {
       "id": "7",
-      "content": "Coffee + code + customer insights = the perfect morning routine",
+      "content": "Why 80% of SRE Teams Fail at True Reliability: Teams measuring uptime instead of customer success rates are setting up for disaster. The real frontier is mapping every critical workflow to SLOs and simulating real-world failure conditions.",
       "type": "post",
       "date": "2025-09-09",
       "hasComment": true
     },
     {
       "id": "8",
-      "content": "The difference between a good demo and a great demo? Understanding what the customer actually needs",
+      "content": "Your System Passed Testing... But Will It Survive Reality? Most teams only test what they can predict—but real failures come from what they don't expect. Teams that combine functional testing with chaos engineering build resilient systems.",
       "type": "post",
       "date": "2025-09-08",
       "hasComment": true
