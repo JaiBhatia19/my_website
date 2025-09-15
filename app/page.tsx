@@ -76,58 +76,49 @@ export default function HomePage() {
         />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a 
-            href="https://www.linkedin.com/in/jaibhatia19/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
-          >
-            <div className="flex items-center space-x-3 mb-3">
-              <Linkedin className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-              <h3 className="font-semibold">Latest Post</h3>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              &ldquo;{linkedinData?.recentPosts?.[0] || 'The future of QA is AI-powered, but human insight remains irreplaceable'}&rdquo;
-            </p>
-            <p className="text-xs text-muted-foreground mt-2">1 day ago</p>
-          </a>
-          
-          <a 
-            href="https://www.linkedin.com/in/jaibhatia19/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
-          >
-            <div className="flex items-center space-x-3 mb-3">
-              <Brain className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-              <h3 className="font-semibold">
-                {linkedinData?.postType === 'ai_insight' ? 'AI Insights' : 
-                 linkedinData?.postType === 'industry_thought' ? 'Industry Thoughts' : 'Latest Insight'}
-              </h3>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              &ldquo;{linkedinData?.recentPosts?.[0] || 'Building AI tools that actually solve real problems, not just demos'}&rdquo;
-            </p>
-            <p className="text-xs text-muted-foreground mt-2">
-              {linkedinData?.postDate ? new Date(linkedinData.postDate).toLocaleDateString() : '2 days ago'}
-            </p>
-          </a>
-          
-          <a 
-            href="https://www.linkedin.com/in/jaibhatia19/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
-          >
-            <div className="flex items-center space-x-3 mb-3">
-              <TrendingUp className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-              <h3 className="font-semibold">Project Update</h3>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              &ldquo;Just shipped SignalNote - AI that transforms customer feedback into product signals&rdquo;
-            </p>
-            <p className="text-xs text-muted-foreground mt-2">3 days ago</p>
-          </a>
+          {/* Show 3 most recent LinkedIn activities */}
+          {[0, 1, 2].map((index) => {
+            const activity = linkedinData?.recentActivity?.[index];
+            const postText = linkedinData?.recentPosts?.[index];
+            const icons = [Linkedin, Brain, TrendingUp];
+            const Icon = icons[index];
+            
+            // Filter out reposts without comments (only for activity objects)
+            if (activity && activity.type === 'repost' && !activity.hasComment) {
+              return null;
+            }
+            
+            return (
+              <a 
+                key={index}
+                href="https://www.linkedin.com/in/jaibhatia19/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
+              >
+                <div className="flex items-center space-x-3 mb-3">
+                  <Icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+                  <h3 className="font-semibold">
+                    {activity?.type === 'post' ? 'Latest Post' :
+                     activity?.type === 'article' ? 'Latest Article' :
+                     activity?.type === 'comment' ? 'Latest Comment' :
+                     index === 0 ? 'Recent Activity' :
+                     index === 1 ? 'Latest Insight' : 'Project Update'}
+                  </h3>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  &ldquo;{activity?.content || postText || 
+                    (index === 0 ? 'The future of QA is AI-powered, but human insight remains irreplaceable' :
+                     index === 1 ? 'Building AI tools that actually solve real problems, not just demos' :
+                     'Just shipped SignalNote - AI that transforms customer feedback into product signals')}&rdquo;
+                </p>
+                <p className="text-xs text-muted-foreground mt-2">
+                  {activity?.date ? new Date(activity.date).toLocaleDateString() : 
+                   `${index + 1} day${index > 0 ? 's' : ''} ago`}
+                </p>
+              </a>
+            );
+          })}
         </div>
       </Section>
 

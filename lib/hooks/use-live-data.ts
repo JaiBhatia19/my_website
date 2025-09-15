@@ -2,11 +2,20 @@
 
 import { useState, useEffect } from 'react';
 
+interface LinkedInActivity {
+  id: string;
+  content: string;
+  type: 'post' | 'article' | 'comment' | 'like' | 'repost';
+  date: string;
+  hasComment?: boolean;
+}
+
 interface LinkedInData {
   name: string;
   headline: string;
   location: string;
-  recentPosts: string[];
+  recentPosts?: string[];
+  recentActivity?: LinkedInActivity[];
   lastUpdated: string;
   postType?: string;
   postDate?: string;
