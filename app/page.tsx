@@ -79,8 +79,6 @@ export default function HomePage() {
         {/* Show 3 most recent LinkedIn activities with smart presentation */}
         {[0, 1, 2].map((index) => {
           const activity = linkedinData?.recentActivity?.[index];
-          const icons = [Linkedin, Brain, TrendingUp];
-          const Icon = icons[index];
           
           // Filter out reposts without comments (only for activity objects)
           if (activity && activity.type === 'repost' && !activity.hasComment) {
@@ -89,6 +87,14 @@ export default function HomePage() {
 
           // Smart content presentation based on the actual post
           const getSmartContent = (content: string, index: number) => {
+            // Check for specific content patterns in order of priority
+            if (content.includes('AI education') || content.includes('neural networks') || content.includes('NotebookLM')) {
+              return {
+                title: 'AI Education',
+                summary: 'Built an AI fundamentals shortcut using NotebookLM - condensed best AI videos into digestible 30-min podcast and 8-min highlights for busy professionals.',
+                icon: Brain
+              };
+            }
             if (content.includes('SignalNote')) {
               return {
                 title: 'Product Launch',
@@ -96,14 +102,14 @@ export default function HomePage() {
                 icon: TrendingUp
               };
             }
-            if (content.includes('Olivia Gambelin') || content.includes('AI')) {
+            if (content.includes('Olivia Gambelin') || content.includes('responsible AI')) {
               return {
                 title: 'Industry Insight',
                 summary: 'Shared insights from CAST 2025 on responsible AI in testing - emphasizing that real progress comes from human expertise.',
                 icon: Brain
               };
             }
-            if (content.includes("doesn't work") || content.includes('Chatbot')) {
+            if (content.includes('language modeling') || content.includes('chatbot') || content.includes('grounding')) {
               return {
                 title: 'Tech Perspective',
                 summary: 'Reflecting on AI limitations - language models without grounding are just "vibes at scale." The real frontier is understanding.',
@@ -138,27 +144,27 @@ export default function HomePage() {
                 icon: TrendingUp
               };
             }
-            if (content.includes('Chaos Engineering') || content.includes('resilient')) {
-              return {
-                title: 'Engineering Focus',
-                summary: 'Explored chaos engineering principles - teams that test for the unexpected build truly resilient systems.',
-                icon: Brain
-              };
-            }
             
-            // Default fallback
-            const defaultTitles = ['Professional Insight', 'Industry Update', 'Technical Thought'];
-            const defaultSummaries = [
-              'Sharing professional insights and industry perspectives on LinkedIn.',
-              'Latest thoughts on technology trends and industry developments.',
-              'Technical insights and professional observations from the field.'
+            // Default fallback based on index to ensure unique content
+            const defaultContent = [
+              {
+                title: 'Professional Insight',
+                summary: 'Sharing professional insights and industry perspectives on LinkedIn.',
+                icon: Brain
+              },
+              {
+                title: 'Industry Update',
+                summary: 'Latest thoughts on technology trends and industry developments.',
+                icon: TrendingUp
+              },
+              {
+                title: 'Technical Thought',
+                summary: 'Technical insights and professional observations from the field.',
+                icon: Linkedin
+              }
             ];
             
-            return {
-              title: defaultTitles[index] || 'Professional Update',
-              summary: defaultSummaries[index] || 'Latest professional insights and industry thoughts.',
-              icon: Icon
-            };
+            return defaultContent[index] || defaultContent[0];
           };
 
           const smartContent = getSmartContent(activity?.content || '', index);

@@ -2,58 +2,30 @@
   "posts": [
     {
       "id": "1",
-      "content": "SignalNote AI-powered customer feedback analysis tool launch",
+      "content": "But let's be honest, most of us don't actually understand what's going on under the hood. Not because we don't care, but because not everyone has hours to sit through dense, technical lectures? So I built myself a shortcut. Using NotebookLM, I condensed some of the best AI fundamentals videos into a...",
       "type": "post",
       "date": "2025-09-15",
       "hasComment": true
     },
     {
-      "id": "2", 
-      "content": "Olivia Gambelin CAST 2025 responsible AI testing insights",
+      "id": "2",
+      "content": "Finally launching SignalNote 🚀 Turns messy customer feedback into clear next steps. Upload CSV, DOCX, TXT, JSON, or RTF and get AI-powered themes, sentiment, urgency, and clustering in seconds. Public demo is open, no sign ups, with light caps so it stays stable. Built in public with a clean stack ...",
       "type": "post",
       "date": "2025-09-14",
       "hasComment": true
     },
     {
       "id": "3",
-      "content": "AI language modeling limitations chatbot understanding",
+      "content": "Everyone's hyped about AI, but Olivia Gambelin's talk on \"Elevating the Human in the Equation: Responsible Testing in the Age of AI.\" was a good reminder that real progress in testing/AI still comes from humans making smart, responsible choices. Tech is cool, but people > promises.",
       "type": "post",
       "date": "2025-09-13",
       "hasComment": true
     },
     {
-      "id": "4",
-      "content": "AWS Q Builder Day Los Angeles GenAI assistants hands-on",
-      "type": "post",
-      "date": "2025-09-12",
-      "hasComment": true
-    },
-    {
       "id": "5",
-      "content": "Jason Huggins Selenium founder testing industry pioneer",
+      "content": "Chatbot said \"Glad I could assist you.\" Turns out, language modeling without grounding is just vibes at scale. The real frontier isn't bigger models, it's models that understand.",
       "type": "post",
       "date": "2025-09-11",
-      "hasComment": true
-    },
-    {
-      "id": "6",
-      "content": "Test automation hidden truth no-code democratization",
-      "type": "post",
-      "date": "2025-09-10",
-      "hasComment": true
-    },
-    {
-      "id": "7",
-      "content": "SRE reliability uptime customer success rates SLOs",
-      "type": "post",
-      "date": "2025-09-09",
-      "hasComment": true
-    },
-    {
-      "id": "8",
-      "content": "Chaos engineering functional testing resilient systems",
-      "type": "post",
-      "date": "2025-09-08",
       "hasComment": true
     }
   ]
