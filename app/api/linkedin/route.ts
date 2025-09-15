@@ -6,6 +6,20 @@ import * as cheerio from 'cheerio';
 
 export async function GET() {
   try {
+    // Try Selenium scraper first (most reliable)
+    try {
+      const seleniumResponse = await fetch(`${process.env.SITE_URL || 'http://localhost:3000'}/api/linkedin-selenium`);
+      if (seleniumResponse.ok) {
+        const seleniumData = await seleniumResponse.json();
+        if (seleniumData && !seleniumData.note?.includes('fallback')) {
+          console.log('✅ Using Selenium scraper data');
+          return NextResponse.json(seleniumData);
+        }
+      }
+    } catch (seleniumError) {
+      console.log('Selenium scraper not available, trying other methods');
+    }
+
     // Try to scrape public LinkedIn profile (without authentication)
     const linkedinData = await scrapePublicLinkedInProfile();
     if (linkedinData) {
