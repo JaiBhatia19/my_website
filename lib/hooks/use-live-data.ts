@@ -8,6 +8,9 @@ interface LinkedInData {
   location: string;
   recentPosts: string[];
   lastUpdated: string;
+  postType?: string;
+  postDate?: string;
+  note?: string;
 }
 
 export function useLiveData() {

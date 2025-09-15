@@ -100,12 +100,17 @@ export default function HomePage() {
           >
             <div className="flex items-center space-x-3 mb-3">
               <Brain className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-              <h3 className="font-semibold">AI Insights</h3>
+              <h3 className="font-semibold">
+                {linkedinData?.postType === 'ai_insight' ? 'AI Insights' : 
+                 linkedinData?.postType === 'industry_thought' ? 'Industry Thoughts' : 'Latest Insight'}
+              </h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              &ldquo;Building AI tools that actually solve real problems, not just demos&rdquo;
+              &ldquo;{linkedinData?.recentPosts?.[0] || 'Building AI tools that actually solve real problems, not just demos'}&rdquo;
             </p>
-            <p className="text-xs text-muted-foreground mt-2">3 days ago</p>
+            <p className="text-xs text-muted-foreground mt-2">
+              {linkedinData?.postDate ? new Date(linkedinData.postDate).toLocaleDateString() : '2 days ago'}
+            </p>
           </a>
           
           <a 
@@ -116,12 +121,12 @@ export default function HomePage() {
           >
             <div className="flex items-center space-x-3 mb-3">
               <TrendingUp className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-              <h3 className="font-semibold">Industry Thoughts</h3>
+              <h3 className="font-semibold">Project Update</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              &ldquo;The best solutions come from understanding both the tech and the business&rdquo;
+              &ldquo;Just shipped SignalNote - AI that transforms customer feedback into product signals&rdquo;
             </p>
-            <p className="text-xs text-muted-foreground mt-2">5 days ago</p>
+            <p className="text-xs text-muted-foreground mt-2">3 days ago</p>
           </a>
         </div>
       </Section>

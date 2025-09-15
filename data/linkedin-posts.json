@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "content": "The future of QA is AI-powered, but human insight remains irreplaceable",
+      "date": "2025-01-15",
+      "type": "insight"
+    },
+    {
+      "id": 2,
+      "content": "Building AI tools that actually solve real problems, not just demos",
+      "date": "2025-01-14",
+      "type": "ai_insight"
+    },
+    {
+      "id": 3,
+      "content": "The best solutions come from understanding both the tech and the business",
+      "date": "2025-01-13",
+      "type": "industry_thought"
+    },
+    {
+      "id": 4,
+      "content": "Turning customer feedback into actionable product signals with AI",
+      "date": "2025-01-12",
+      "type": "ai_insight"
+    },
+    {
+      "id": 5,
+      "content": "Why every sales engineer should learn to code - it changes how you solve problems",
+      "date": "2025-01-11",
+      "type": "insight"
+    },
+    {
+      "id": 6,
+      "content": "Just shipped SignalNote - AI that transforms customer feedback into product signals",
+      "date": "2025-01-10",
+      "type": "project_update"
+    },
+    {
+      "id": 7,
+      "content": "Coffee + code + customer insights = the perfect morning routine",
+      "date": "2025-01-09",
+      "type": "personal"
+    },
+    {
+      "id": 8,
+      "content": "The difference between a good demo and a great demo? Understanding what the customer actually needs",
+      "date": "2025-01-08",
+      "type": "industry_thought"
+    }
+  ],
+  "lastUpdated": "2025-01-15T00:00:00Z"
+}
