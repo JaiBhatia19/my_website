@@ -69,58 +69,132 @@ export default function HomePage() {
       </Section>
 
       {/* Live Activity Section */}
-      <Section className="bg-muted/50">
-        <SectionHeader
-          title="Live Activity"
-          description="Latest thoughts and insights"
-        />
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Show 3 most recent LinkedIn activities */}
-          {[0, 1, 2].map((index) => {
-            const activity = linkedinData?.recentActivity?.[index];
-            const postText = linkedinData?.recentPosts?.[index];
-            const icons = [Linkedin, Brain, TrendingUp];
-            const Icon = icons[index];
-            
-            // Filter out reposts without comments (only for activity objects)
-            if (activity && activity.type === 'repost' && !activity.hasComment) {
-              return null;
+    <Section className="bg-muted/50">
+      <SectionHeader
+        title="Live Activity"
+        description="Latest thoughts and insights from LinkedIn"
+      />
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Show 3 most recent LinkedIn activities with smart presentation */}
+        {[0, 1, 2].map((index) => {
+          const activity = linkedinData?.recentActivity?.[index];
+          const icons = [Linkedin, Brain, TrendingUp];
+          const Icon = icons[index];
+          
+          // Filter out reposts without comments (only for activity objects)
+          if (activity && activity.type === 'repost' && !activity.hasComment) {
+            return null;
+          }
+
+          // Smart content presentation based on the actual post
+          const getSmartContent = (content: string, index: number) => {
+            if (content.includes('SignalNote')) {
+              return {
+                title: 'Product Launch',
+                summary: 'Launched SignalNote - AI-powered customer feedback analysis tool that transforms messy data into actionable insights.',
+                icon: TrendingUp
+              };
+            }
+            if (content.includes('Olivia Gambelin') || content.includes('AI')) {
+              return {
+                title: 'Industry Insight',
+                summary: 'Shared insights from CAST 2025 on responsible AI in testing - emphasizing that real progress comes from human expertise.',
+                icon: Brain
+              };
+            }
+            if (content.includes("doesn't work") || content.includes('Chatbot')) {
+              return {
+                title: 'Tech Perspective',
+                summary: 'Reflecting on AI limitations - language models without grounding are just "vibes at scale." The real frontier is understanding.',
+                icon: Brain
+              };
+            }
+            if (content.includes('AWS') || content.includes('Q Builder')) {
+              return {
+                title: 'Industry Event',
+                summary: 'Attended AWS Q Builder Day in LA - hands-on experience with GenAI assistants and enterprise AI integration.',
+                icon: TrendingUp
+              };
+            }
+            if (content.includes('Jason Huggins') || content.includes('Selenium')) {
+              return {
+                title: 'Industry Connection',
+                summary: 'Met Jason Huggins, founder of Selenium - connecting with pioneers who built the testing tools we use today.',
+                icon: Linkedin
+              };
+            }
+            if (content.includes('Test Automation') || content.includes('automation')) {
+              return {
+                title: 'Expertise Share',
+                summary: 'Shared insights on test automation challenges - why 80% of teams fail and how no-code approaches democratize testing.',
+                icon: Brain
+              };
+            }
+            if (content.includes('SRE') || content.includes('reliability')) {
+              return {
+                title: 'Technical Insight',
+                summary: 'Discussed SRE best practices - why measuring uptime instead of customer success rates sets teams up for failure.',
+                icon: TrendingUp
+              };
+            }
+            if (content.includes('Chaos Engineering') || content.includes('resilient')) {
+              return {
+                title: 'Engineering Focus',
+                summary: 'Explored chaos engineering principles - teams that test for the unexpected build truly resilient systems.',
+                icon: Brain
+              };
             }
             
-            return (
-              <a 
-                key={index}
-                href="https://www.linkedin.com/in/jaibhatia19/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
-              >
-                <div className="flex items-center space-x-3 mb-3">
-                  <Icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-                  <h3 className="font-semibold">
-                    {activity?.type === 'post' ? 'Latest Post' :
-                     activity?.type === 'article' ? 'Latest Article' :
-                     activity?.type === 'comment' ? 'Latest Comment' :
-                     index === 0 ? 'Recent Activity' :
-                     index === 1 ? 'Latest Insight' : 'Project Update'}
-                  </h3>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  &ldquo;{activity?.content || postText || 
-                    (index === 0 ? 'The future of QA is AI-powered, but human insight remains irreplaceable' :
-                     index === 1 ? 'Building AI tools that actually solve real problems, not just demos' :
-                     'Just shipped SignalNote - AI that transforms customer feedback into product signals')}&rdquo;
-                </p>
-                <p className="text-xs text-muted-foreground mt-2">
+            // Default fallback
+            const defaultTitles = ['Professional Insight', 'Industry Update', 'Technical Thought'];
+            const defaultSummaries = [
+              'Sharing professional insights and industry perspectives on LinkedIn.',
+              'Latest thoughts on technology trends and industry developments.',
+              'Technical insights and professional observations from the field.'
+            ];
+            
+            return {
+              title: defaultTitles[index] || 'Professional Update',
+              summary: defaultSummaries[index] || 'Latest professional insights and industry thoughts.',
+              icon: Icon
+            };
+          };
+
+          const smartContent = getSmartContent(activity?.content || '', index);
+          const SmartIcon = smartContent.icon;
+          
+          return (
+            <a 
+              key={index}
+              href="https://www.linkedin.com/in/jaibhatia19/recent-activity/all/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-40 flex flex-col justify-between"
+            >
+              <div className="flex items-center space-x-3 mb-3">
+                <SmartIcon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+                <h3 className="font-semibold text-sm">
+                  {smartContent.title}
+                </h3>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
+                {smartContent.summary}
+              </p>
+              <div className="flex items-center justify-between mt-3">
+                <p className="text-xs text-muted-foreground">
                   {activity?.date ? new Date(activity.date).toLocaleDateString() : 
                    `${index + 1} day${index > 0 ? 's' : ''} ago`}
                 </p>
-              </a>
-            );
-          })}
-        </div>
-      </Section>
+                <span className="text-xs text-primary group-hover:text-primary/80 transition-colors">
+                  View on LinkedIn →
+                </span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </Section>
 
       {/* Skills Section */}
       <Section>
