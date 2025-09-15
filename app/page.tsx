@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 
 export default function HomePage() {
-  const { githubData, linkedinData } = useLiveData();
+  const { linkedinData } = useLiveData();
   const [profile, setProfile] = useState<any>(null);
 
   useEffect(() => {
@@ -46,24 +46,24 @@ export default function HomePage() {
       <Section id="what-i-do">
         <SectionHeader
           title="What I Do"
-          description="Building solutions that bridge the gap between technical possibilities and business needs"
+          description="Turning ideas into reality with a mix of technical chops and business sense"
         />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <FeatureCard
             icon={<Wrench className="h-6 w-6" />}
             title="Solutions Engineering"
-            description="Design and implement technical solutions that solve real business problems, from discovery to deployment."
+            description="Crafting technical solutions that actually work in the real world. No buzzwords, just results."
           />
           <FeatureCard
             icon={<Brain className="h-6 w-6" />}
-            title="AI Prototypes"
-            description="Build rapid prototypes using AI and ML to validate ideas and demonstrate value to stakeholders."
+            title="AI & Vibe Coding"
+            description="Building AI-powered tools that solve real problems. Think SignalNote, not another ChatGPT wrapper."
           />
           <FeatureCard
             icon={<Handshake className="h-6 w-6" />}
-            title="Partnerships"
-            description="Foster strategic partnerships and technical integrations that drive mutual growth and innovation."
+            title="Strategic Partnerships"
+            description="Connecting the dots between tech and business to create win-win scenarios."
           />
         </div>
       </Section>
@@ -72,42 +72,24 @@ export default function HomePage() {
       <Section className="bg-muted/50">
         <SectionHeader
           title="Live Activity"
-          description="What I'm working on right now"
+          description="Latest thoughts and insights"
         />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <a 
-            href={githubData?.recentActivity?.[0]?.url || 'https://github.com/JaiBhatia19'}
+            href="https://www.linkedin.com/in/jaibhatia19/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
           >
             <div className="flex items-center space-x-3 mb-3">
-              <Github className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-              <h3 className="font-semibold">Latest Commit</h3>
+              <Linkedin className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold">Latest Post</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              {(() => {
-                const commitMessage = githubData?.recentActivity?.[0]?.message || 'Enhanced demo automation with AI-powered test generation';
-                // Filter out website-related commits and summarize
-                if (commitMessage.toLowerCase().includes('website') || 
-                    commitMessage.toLowerCase().includes('portfolio') ||
-                    commitMessage.toLowerCase().includes('personal-site')) {
-                  return 'Working on AI-powered automation solutions';
-                }
-                // Summarize long commit messages
-                if (commitMessage.length > 60) {
-                  return commitMessage.substring(0, 57) + '...';
-                }
-                return commitMessage;
-              })()}
+              &ldquo;{linkedinData?.recentPosts?.[0] || 'The future of QA is AI-powered, but human insight remains irreplaceable'}&rdquo;
             </p>
-            <p className="text-xs text-muted-foreground mt-2">
-              {githubData?.recentActivity?.[0]?.timestamp 
-                ? new Date(githubData.recentActivity[0].timestamp).toLocaleDateString()
-                : '2 hours ago'
-              }
-            </p>
+            <p className="text-xs text-muted-foreground mt-2">1 day ago</p>
           </a>
           
           <a 
@@ -117,43 +99,29 @@ export default function HomePage() {
             className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
           >
             <div className="flex items-center space-x-3 mb-3">
-              <Linkedin className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-              <h3 className="font-semibold">Recent Post</h3>
+              <Brain className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold">AI Insights</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              &ldquo;{linkedinData?.recentPosts?.[0] || 'The future of QA is AI-powered, but human insight remains irreplaceable'}&rdquo;
+              &ldquo;Building AI tools that actually solve real problems, not just demos&rdquo;
             </p>
-            <p className="text-xs text-muted-foreground mt-2">1 day ago</p>
+            <p className="text-xs text-muted-foreground mt-2">3 days ago</p>
           </a>
           
           <a 
-            href={githubData?.projects?.[0]?.url || 'https://github.com/JaiBhatia19'}
+            href="https://www.linkedin.com/in/jaibhatia19/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
           >
             <div className="flex items-center space-x-3 mb-3">
               <TrendingUp className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-              <h3 className="font-semibold">Project Update</h3>
+              <h3 className="font-semibold">Industry Thoughts</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              {(() => {
-                const projectDesc = githubData?.projects?.[0]?.description || 'Launched new ML model improving test accuracy by 20%';
-                // Filter out website-related projects
-                if (projectDesc.toLowerCase().includes('website') || 
-                    projectDesc.toLowerCase().includes('portfolio') ||
-                    projectDesc.toLowerCase().includes('personal-site')) {
-                  return 'Building AI-powered customer feedback analysis tools';
-                }
-                return projectDesc;
-              })()}
+              &ldquo;The best solutions come from understanding both the tech and the business&rdquo;
             </p>
-            <p className="text-xs text-muted-foreground mt-2">
-              {githubData?.projects?.[0]?.lastUpdated 
-                ? new Date(githubData.projects[0].lastUpdated).toLocaleDateString()
-                : '3 days ago'
-              }
-            </p>
+            <p className="text-xs text-muted-foreground mt-2">5 days ago</p>
           </a>
         </div>
       </Section>
@@ -162,7 +130,7 @@ export default function HomePage() {
       <Section>
         <SectionHeader
           title="Technical Expertise"
-          description="Building solutions with cutting-edge technologies"
+          description="The tools and tech I use to turn coffee into code"
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -214,7 +182,7 @@ export default function HomePage() {
       <Section className="bg-muted/50">
         <SectionHeader
           title="Featured Projects"
-          description="Hands-on projects that demonstrate real-world impact"
+          description="Real projects, real impact. No fluff, just results."
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

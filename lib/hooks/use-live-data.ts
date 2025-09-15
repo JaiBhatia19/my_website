@@ -2,12 +2,6 @@
 
 import { useState, useEffect } from 'react';
 
-interface LiveData {
-  projects: any[];
-  recentActivity: any[];
-  lastUpdated: string;
-}
-
 interface LinkedInData {
   name: string;
   headline: string;
@@ -17,7 +11,6 @@ interface LinkedInData {
 }
 
 export function useLiveData() {
-  const [githubData, setGithubData] = useState<LiveData | null>(null);
   const [linkedinData, setLinkedinData] = useState<LinkedInData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -27,14 +20,7 @@ export function useLiveData() {
       try {
         setLoading(true);
         
-        // Fetch GitHub data
-        const githubResponse = await fetch('/api/github?username=JaiBhatia19');
-        if (githubResponse.ok) {
-          const githubData = await githubResponse.json();
-          setGithubData(githubData);
-        }
-
-        // Fetch LinkedIn data
+        // Fetch LinkedIn data only
         const linkedinResponse = await fetch('/api/linkedin?url=https://www.linkedin.com/in/jaibhatia19/');
         if (linkedinResponse.ok) {
           const linkedinData = await linkedinResponse.json();
@@ -52,18 +38,13 @@ export function useLiveData() {
 
     fetchLiveData();
 
-    // Refresh data every 12 hours (twice a day)
-    // To change frequency: 
-    // - Once daily: 24 * 60 * 60 * 1000
-    // - Twice daily: 12 * 60 * 60 * 1000 (current)
-    // - Every 6 hours: 6 * 60 * 60 * 1000
-    const interval = setInterval(fetchLiveData, 12 * 60 * 60 * 1000);
+    // Refresh data once daily (24 hours)
+    const interval = setInterval(fetchLiveData, 24 * 60 * 60 * 1000);
     
     return () => clearInterval(interval);
   }, []);
 
   return {
-    githubData,
     linkedinData,
     loading,
     error,
@@ -71,14 +52,8 @@ export function useLiveData() {
       try {
         const response = await fetch('/api/refresh-data', { method: 'POST' });
         if (response.ok) {
-          // Refetch live data after refresh
-          const githubResponse = await fetch('/api/github?username=JaiBhatia19');
+          // Refetch LinkedIn data after refresh
           const linkedinResponse = await fetch('/api/linkedin?url=https://www.linkedin.com/in/jaibhatia19/');
-          
-          if (githubResponse.ok) {
-            const githubData = await githubResponse.json();
-            setGithubData(githubData);
-          }
           
           if (linkedinResponse.ok) {
             const linkedinData = await linkedinResponse.json();
