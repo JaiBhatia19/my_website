@@ -1,0 +1,111 @@
+{
+  "name": "Jai Bhatia",
+  "headline": "Sales Engineer and AI-minded Solutions Architect building useful products",
+  "location": "Los Angeles, CA",
+  "email": "jaibhatia1906@gmail.com",
+  "phone": "(619) 866-5632",
+  "linkedin": "https://www.linkedin.com/in/jaibhatia19/",
+  "github": "https://github.com/JaiBhatia19",
+  "summary": "AI-powered solutions architect with expertise in test automation, data science, and technical sales.",
+  "experience": [
+    {
+      "company": "Watermelon Software Inc.",
+      "position": "Sales Engineer",
+      "location": "Los Angeles, CA",
+      "startDate": "Oct 2024",
+      "endDate": "Present",
+      "current": true,
+      "description": "AI-powered test automation platform helping companies ship faster and avoid downtime.",
+      "achievements": [
+        "Led 30+ discovery sessions with executives, IT, and business teams to uncover needs and design tailored technical solutions for banks, insurance, and reseller verticals",
+        "Partnered with product, engineering, and delivery teams to map customer pain points, translate requirements into technical execution, and align teams around shared priorities",
+        "Built reusable demo kits, interactive Storylane walkthroughs, and Loom explainers, reducing prep time by 30% and improving communication of complex features",
+        "Captured and analyzed client requirements to inform roadmap planning and create scalable solution designs that addressed recurring industry challenges",
+        "Synthesized insights from client and prospect conversations, directly shaping three new product features and guiding go-to-market strategy decisions",
+        "Engaged with industry leaders at software testing and QA conferences, uncovering emerging market trends and identifying opportunities for collaboration and innovation",
+        "Supported implementation and partner pilots, ensuring smooth onboarding and technical handoffs across cross-functional teams"
+      ],
+      "technologies": [
+        "Python",
+        "SQL",
+        "AWS",
+        "LangChain",
+        "Storylane",
+        "Loom",
+        "HubSpot",
+        "Sales Navigator"
+      ]
+    },
+    {
+      "company": "Watermelon Software Inc.",
+      "position": "Data Scientist",
+      "location": "Los Angeles, CA",
+      "startDate": "Sep 2023",
+      "endDate": "Oct 2024",
+      "current": false,
+      "description": "Joined the ML R&D team, building QA automation and management tools for the enterprise.",
+      "achievements": [
+        "Collaborated with engineering and research teams to launch a screen classification model, raising element detection accuracy on QA test steps by 20%",
+        "Co-developed a test case prioritization engine, reducing regression suite runtime by 25% for enterprise customers",
+        "Supported prototyping of GenAI test case writers (LangChain, RAG) to generate automated QA flows from product specs, accelerating test authoring and release cycles",
+        "Worked across QA, product, and customer-facing groups to ship ML features that were adopted internally and by customers, improving reliability in large testing orgs"
+      ],
+      "technologies": [
+        "Python",
+        "Machine Learning",
+        "LangChain",
+        "RAG",
+        "AWS",
+        "MLOps"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "UC San Diego, Rady School of Management",
+      "degree": "M.S.",
+      "field": "Business Analytics",
+      "location": "San Diego, CA",
+      "startDate": "July 2022",
+      "endDate": "June 2023",
+      "achievements": [
+        "Academic Fellowship Recipient",
+        "Capstone: Data Analyst at sway.ai - Built influencer detection system using NLP and social graph analytics (Python, Tableau, YouTube API); improved sentiment analysis for 10M+ posts by 30%"
+      ]
+    },
+    {
+      "institution": "UC San Diego",
+      "degree": "B.S.",
+      "field": "Mathematics & Economics; Minor in Business",
+      "location": "San Diego, CA",
+      "startDate": "Sep 2018",
+      "endDate": "Jun 2022"
+    }
+  ],
+  "skills": [
+    "Python",
+    "SQL",
+    "OpenAI API",
+    "AWS (Lambda, S3, EC2)",
+    "n8n",
+    "Postman",
+    "HubSpot",
+    "Sales Navigator",
+    "Notion",
+    "Jira",
+    "Confluence",
+    "Swagger",
+    "LangChain",
+    "Hugging Face",
+    "Storylane",
+    "Loom"
+  ],
+  "certifications": [
+    "AWS Partner Accreditation (Technical)",
+    "AWS Technical Essentials",
+    "AWS SAA (Aug 2025)"
+  ],
+  "awards": [
+    "Promoted within 1 year; recognized by CEO & Product team for impact on roadmap and go-to-market"
+  ]
+}

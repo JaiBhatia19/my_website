@@ -1,0 +1,74 @@
+[
+  {
+    "name": "my_website",
+    "description": "My personal website, built using perplexity labs",
+    "url": "https://github.com/JaiBhatia19/my_website",
+    "homepage": null,
+    "language": "Other",
+    "stars": 0,
+    "forks": 0,
+    "topics": [],
+    "updatedAt": "2025-09-12T00:17:18Z",
+    "createdAt": "2025-09-12T00:17:17Z"
+  },
+  {
+    "name": "JaiBhatia19",
+    "description": "",
+    "url": "https://github.com/JaiBhatia19/JaiBhatia19",
+    "homepage": null,
+    "language": "Other",
+    "stars": 0,
+    "forks": 0,
+    "topics": [],
+    "updatedAt": "2025-08-28T22:15:30Z",
+    "createdAt": "2024-06-25T00:10:54Z"
+  },
+  {
+    "name": "signal_note",
+    "description": "",
+    "url": "https://github.com/JaiBhatia19/signal_note",
+    "homepage": "https://signalnote.vercel.app",
+    "language": "HTML",
+    "stars": 0,
+    "forks": 0,
+    "topics": [],
+    "updatedAt": "2025-08-26T17:49:08Z",
+    "createdAt": "2025-08-21T21:29:43Z"
+  },
+  {
+    "name": "Data-Job-Salaries-Dashboard",
+    "description": "Visual analysis of data job salaries across different roles and locations using Tableau.",
+    "url": "https://github.com/JaiBhatia19/Data-Job-Salaries-Dashboard",
+    "homepage": null,
+    "language": "Other",
+    "stars": 1,
+    "forks": 0,
+    "topics": [],
+    "updatedAt": "2024-11-22T06:42:35Z",
+    "createdAt": "2024-06-24T07:48:20Z"
+  },
+  {
+    "name": "Product-Innovation-Roadmap",
+    "description": "Roadmap for product innovation, created for a product management class, detailing a new feature addition.",
+    "url": "https://github.com/JaiBhatia19/Product-Innovation-Roadmap",
+    "homepage": null,
+    "language": "Other",
+    "stars": 0,
+    "forks": 0,
+    "topics": [],
+    "updatedAt": "2024-06-24T23:53:53Z",
+    "createdAt": "2024-06-24T09:05:00Z"
+  },
+  {
+    "name": "Amazon-Product-Rating-Prediction",
+    "description": "",
+    "url": "https://github.com/JaiBhatia19/Amazon-Product-Rating-Prediction",
+    "homepage": null,
+    "language": "Jupyter Notebook",
+    "stars": 0,
+    "forks": 0,
+    "topics": [],
+    "updatedAt": "2024-06-24T23:43:50Z",
+    "createdAt": "2024-06-24T08:45:06Z"
+  }
+]
