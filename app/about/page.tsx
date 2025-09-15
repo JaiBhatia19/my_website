@@ -78,9 +78,9 @@ export default async function AboutPage() {
               </CustomCard>
               
               <Button asChild className="w-full">
-                <a href="/resume.pdf" download>
+                <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
                   <Download className="h-4 w-4 mr-2" />
-                  Download Resume
+                  View Resume
                 </a>
               </Button>
             </div>
@@ -117,8 +117,41 @@ export default async function AboutPage() {
         </div>
       </Section>
 
-      {/* Skills & Tools Section */}
+      {/* Conference Experience Section */}
       <Section>
+        <div className="max-w-4xl mx-auto">
+          <SectionHeader
+            title="Speaking & Community"
+            description="Sharing knowledge and engaging with the tech community"
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {profile.conferenceExperience?.map((event: any, index: number) => (
+              <CustomCard key={index} title={event.event}>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
+                      {event.role}
+                    </span>
+                    <span className="text-sm text-muted-foreground">{event.date}</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <MapPin className="h-4 w-4 text-primary" />
+                    <span>{event.location}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-sm mb-1">{event.topic}</h4>
+                    <p className="text-sm text-muted-foreground">{event.description}</p>
+                  </div>
+                </div>
+              </CustomCard>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Skills & Tools Section */}
+      <Section className="bg-muted/50">
         <div className="max-w-4xl mx-auto">
           <SectionHeader
             title="Skills & Tools"

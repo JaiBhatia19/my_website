@@ -121,11 +121,110 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Skills Section */}
+      <Section>
+        <SectionHeader
+          title="Technical Expertise"
+          description="Building solutions with cutting-edge technologies"
+        />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-card rounded-lg p-6 border">
+            <h3 className="font-semibold mb-4 flex items-center">
+              <Brain className="h-5 w-5 text-primary mr-2" />
+              AI & Machine Learning
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {profile.additionalSkills?.ai_ml?.map((skill: string, index: number) => (
+                <span key={index} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          
+          <div className="bg-card rounded-lg p-6 border">
+            <h3 className="font-semibold mb-4 flex items-center">
+              <Wrench className="h-5 w-5 text-primary mr-2" />
+              Development Stack
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {profile.additionalSkills?.frameworks?.map((skill: string, index: number) => (
+                <span key={index} className="px-3 py-1 bg-accent/10 text-accent-foreground text-sm rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          
+          <div className="bg-card rounded-lg p-6 border">
+            <h3 className="font-semibold mb-4 flex items-center">
+              <TrendingUp className="h-5 w-5 text-primary mr-2" />
+              Cloud & DevOps
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {profile.additionalSkills?.cloud?.map((skill: string, index: number) => (
+                <span key={index} className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Personal Projects Section */}
+      <Section className="bg-muted/50">
+        <SectionHeader
+          title="Featured Projects"
+          description="Hands-on projects that demonstrate real-world impact"
+        />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {profile.personalProjects?.map((project: any, index: number) => (
+            <div key={index} className="bg-card rounded-lg p-6 border hover:shadow-lg transition-shadow">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h3 className="font-semibold text-lg">{project.name}</h3>
+                  <span className="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                    {project.status}
+                  </span>
+                </div>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-primary/80"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+              </div>
+              <p className="text-muted-foreground mb-4">{project.description}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.technologies.map((tech: string, techIndex: number) => (
+                  <span key={techIndex} className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <ul className="space-y-1 text-sm">
+                {project.achievements.slice(0, 2).map((achievement: string, achIndex: number) => (
+                  <li key={achIndex} className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    {achievement}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* Social Proof Section */}
       <Section>
         <SectionHeader
-          title="Trusted By"
-          description="Working with industry leaders to build better software"
+          title="Impact Metrics"
+          description="Quantifiable results from my work"
         />
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
@@ -135,7 +234,7 @@ export default function HomePage() {
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-muted-foreground">20%</div>
-            <div className="text-sm text-muted-foreground">Accuracy Improvement</div>
+            <div className="text-sm text-muted-foreground">ML Accuracy Improvement</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-muted-foreground">25%</div>
@@ -143,7 +242,7 @@ export default function HomePage() {
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-muted-foreground">3</div>
-            <div className="text-sm text-muted-foreground">Product Features</div>
+            <div className="text-sm text-muted-foreground">Product Features Shipped</div>
           </div>
         </div>
       </Section>

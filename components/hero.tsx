@@ -102,15 +102,21 @@ export function Hero({ profile }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <Button asChild size="lg" className="group">
+              <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
+                📄 Download Resume
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
+            
+            <Button variant="outline" size="lg" asChild>
               <Link href="/contact">
                 Get in Touch
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
             
             <Button variant="outline" size="lg" asChild>
-              <Link href="/experience">
-                View Experience
+              <Link href="/projects">
+                View Projects
               </Link>
             </Button>
           </motion.div>

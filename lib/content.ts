@@ -15,6 +15,36 @@ export interface ProfileData {
   skills: string[];
   certifications: string[];
   awards: string[];
+  personalProjects?: PersonalProject[];
+  conferenceExperience?: ConferenceExperience[];
+  additionalSkills?: AdditionalSkills;
+}
+
+export interface PersonalProject {
+  name: string;
+  description: string;
+  url: string;
+  technologies: string[];
+  status: string;
+  achievements: string[];
+}
+
+export interface ConferenceExperience {
+  event: string;
+  role: string;
+  date: string;
+  location: string;
+  topic: string;
+  description: string;
+}
+
+export interface AdditionalSkills {
+  languages: string[];
+  frameworks: string[];
+  cloud: string[];
+  ai_ml: string[];
+  tools: string[];
+  databases: string[];
 }
 
 export interface Experience {

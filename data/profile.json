@@ -107,5 +107,60 @@
   ],
   "awards": [
     "Promoted within 1 year; recognized by CEO & Product team for impact on roadmap and go-to-market"
-  ]
+  ],
+  "personalProjects": [
+    {
+      "name": "SignalNote",
+      "description": "AI-powered app that transforms customer feedback into actionable product signals",
+      "url": "https://signalnote.vercel.app",
+      "technologies": ["React", "Next.js", "OpenAI API", "Tailwind CSS", "Vercel"],
+      "status": "Live",
+      "achievements": [
+        "Built end-to-end customer feedback analysis system",
+        "Integrated OpenAI API for intelligent sentiment analysis",
+        "Deployed on Vercel with real-time data processing",
+        "Designed intuitive UI for product managers and stakeholders"
+      ]
+    },
+    {
+      "name": "Personal Website",
+      "description": "Modern portfolio website showcasing professional experience and projects",
+      "url": "https://github.com/JaiBhatia19/my_website",
+      "technologies": ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Resend API"],
+      "status": "Live",
+      "achievements": [
+        "Built with Next.js 14 App Router for optimal performance",
+        "Integrated live GitHub data with API routes",
+        "Implemented contact form with email automation",
+        "Responsive design with dark/light theme toggle",
+        "SEO optimized with metadata and sitemap generation"
+      ]
+    }
+  ],
+  "conferenceExperience": [
+    {
+      "event": "Software Testing & QA Conference",
+      "role": "Speaker/Participant",
+      "date": "2024",
+      "location": "Virtual",
+      "topic": "AI-Powered Test Automation: The Future of QA",
+      "description": "Engaged with industry leaders and presented insights on AI-driven testing solutions"
+    },
+    {
+      "event": "Data Science & ML Meetup",
+      "role": "Presenter",
+      "date": "2023",
+      "location": "San Diego, CA",
+      "topic": "Building ML Models for Enterprise QA Automation",
+      "description": "Shared experiences in developing ML solutions for test automation challenges"
+    }
+  ],
+  "additionalSkills": {
+    "languages": ["Python", "SQL", "JavaScript", "TypeScript", "HTML/CSS"],
+    "frameworks": ["React", "Next.js", "Node.js", "Express"],
+    "cloud": ["AWS (Lambda, S3, EC2)", "Vercel", "Netlify"],
+    "ai_ml": ["OpenAI API", "LangChain", "Hugging Face", "Machine Learning", "RAG"],
+    "tools": ["Git", "Docker", "Postman", "n8n", "HubSpot", "Sales Navigator"],
+    "databases": ["PostgreSQL", "MongoDB", "Redis"]
+  }
 }

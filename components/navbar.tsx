@@ -76,8 +76,19 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
+          {/* Resume Download & Theme Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
+            <Button
+              variant="outline"
+              size="sm"
+              className="hidden md:flex"
+              asChild
+            >
+              <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
+                📄 Resume
+              </a>
+            </Button>
+            
             <Button
               variant="ghost"
               size="icon"
@@ -131,7 +142,17 @@ export function Navbar() {
                     {item.name}
                   </Link>
                 ))}
-                <div className="px-3 py-2">
+                <div className="px-3 py-2 space-y-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full justify-start"
+                    asChild
+                  >
+                    <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
+                      📄 Resume
+                    </a>
+                  </Button>
                   <Button
                     variant="ghost"
                     size="sm"

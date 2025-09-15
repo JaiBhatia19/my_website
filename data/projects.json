@@ -1,13 +1,25 @@
 [
   {
-    "name": "my_website",
-    "description": "My personal website, built using perplexity labs",
-    "url": "https://github.com/JaiBhatia19/my_website",
-    "homepage": null,
-    "language": "Other",
+    "name": "SignalNote",
+    "description": "AI-powered app that transforms customer feedback into actionable product signals",
+    "url": "https://github.com/JaiBhatia19/signal_note",
+    "homepage": "https://signalnote.vercel.app",
+    "language": "HTML",
     "stars": 0,
     "forks": 0,
-    "topics": [],
+    "topics": ["ai", "customer-feedback", "product-management", "nextjs"],
+    "updatedAt": "2025-08-26T17:49:08Z",
+    "createdAt": "2025-08-21T21:29:43Z"
+  },
+  {
+    "name": "my_website",
+    "description": "Modern personal portfolio website built with Next.js 14, TypeScript, and Tailwind CSS",
+    "url": "https://github.com/JaiBhatia19/my_website",
+    "homepage": "https://jai-bhatia-personal-site-rakr5uoc0.vercel.app",
+    "language": "TypeScript",
+    "stars": 0,
+    "forks": 0,
+    "topics": ["nextjs", "typescript", "tailwindcss", "portfolio", "vercel"],
     "updatedAt": "2025-09-12T00:17:18Z",
     "createdAt": "2025-09-12T00:17:17Z"
   },
