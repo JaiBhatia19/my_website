@@ -1,15 +1,15 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
+import axios from 'axios';
+import * as cheerio from 'cheerio';
 
 export async function GET() {
   try {
-    // Try LinkedIn API first if credentials are available
-    if (process.env.LINKEDIN_ACCESS_TOKEN) {
-      const linkedinData = await fetchLinkedInActivity();
-      if (linkedinData) {
-        return NextResponse.json(linkedinData);
-      }
+    // Try to scrape public LinkedIn profile (without authentication)
+    const linkedinData = await scrapePublicLinkedInProfile();
+    if (linkedinData) {
+      return NextResponse.json(linkedinData);
     }
 
     // Fallback to curated posts from JSON file
@@ -32,7 +32,7 @@ export async function GET() {
       location: 'Los Angeles, CA',
       recentActivity: [selectedPost],
       lastUpdated: new Date().toISOString(),
-      note: 'Using curated content. Set up LinkedIn API credentials for live data.'
+      note: 'Using curated content. LinkedIn blocks public scraping.'
     });
   } catch (error) {
     console.error('LinkedIn API error:', error);
@@ -55,47 +55,92 @@ export async function GET() {
   }
 }
 
-async function fetchLinkedInActivity(): Promise<any> {
+async function scrapePublicLinkedInProfile(): Promise<any> {
   try {
-    const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
-    
-    // Fetch user profile first
-    const profileResponse = await fetch('https://api.linkedin.com/v2/people/~', {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
-      },
-    });
+    // Try different LinkedIn URLs that might be publicly accessible
+    const urls = [
+      'https://www.linkedin.com/in/jaibhatia19/',
+      'https://linkedin.com/in/jaibhatia19/',
+      'https://www.linkedin.com/pub/jai-bhatia/',
+    ];
 
-    if (!profileResponse.ok) {
-      console.error('LinkedIn profile fetch failed:', profileResponse.status);
-      return null;
+    for (const url of urls) {
+      try {
+        const response = await axios.get(url, {
+          headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none',
+            'Cache-Control': 'max-age=0'
+          },
+          timeout: 10000,
+          maxRedirects: 5,
+        });
+
+        // Check if we got a sign-in page (which means scraping is blocked)
+        if (response.data.includes('Sign in') || response.data.includes('authwall')) {
+          console.log(`LinkedIn blocked scraping for ${url}`);
+          continue;
+        }
+
+        const $ = cheerio.load(response.data);
+        
+        // Extract profile information
+        const name = $('h1').first().text().trim() || 'Jai Bhatia';
+        const headline = $('.text-body-medium, .pv-text-details__left-panel h1 + .text-body-medium').first().text().trim() || 
+                        'Sales Engineer & AI Solutions Architect';
+        const location = $('.text-body-small.inline, .pv-text-details__left-panel .text-body-small').first().text().trim() || 
+                        'Los Angeles, CA';
+
+        // Try to extract recent activity (this is limited on public profiles)
+        const recentActivity: any[] = [];
+
+        // Look for any visible posts or activities
+        $('.feed-shared-text, .pv-entity__summary-info, .pv-entity__description').each((i, el) => {
+          if (i < 3) { // Limit to 3 items
+            const text = $(el).text().trim();
+            if (text && text.length > 10) {
+              recentActivity.push({
+                id: `activity-${i}`,
+                content: text.substring(0, 200), // Limit length
+                type: 'post',
+                date: new Date().toISOString().split('T')[0],
+                hasComment: true
+              });
+            }
+          }
+        });
+
+        // If we found some activity, return it
+        if (recentActivity.length > 0) {
+          return {
+            name,
+            headline,
+            location,
+            recentActivity,
+            lastUpdated: new Date().toISOString(),
+            note: 'Scraped from public LinkedIn profile'
+          };
+        }
+
+      } catch (urlError) {
+        console.log(`Failed to scrape ${url}:`, urlError instanceof Error ? urlError.message : 'Unknown error');
+        continue;
+      }
     }
 
-    const profile = await profileResponse.json();
+    // If all URLs failed, return null
+    return null;
 
-    // Note: LinkedIn API has limited access to recent activity
-    // For full activity access, we might need to use a different approach
-    // This is a placeholder for when you set up the LinkedIn API credentials
-    
-    return {
-      name: `${profile.firstName?.localized?.en_US || 'Jai'} ${profile.lastName?.localized?.en_US || 'Bhatia'}`,
-      headline: profile.headline?.localized?.en_US || 'Sales Engineer & AI Solutions Architect',
-      location: profile.location?.name || 'Los Angeles, CA',
-      recentActivity: [
-        {
-          id: '1',
-          content: 'Building AI tools that actually solve real problems, not just demos',
-          type: 'post',
-          date: new Date().toISOString().split('T')[0],
-          hasComment: true
-        }
-      ],
-      lastUpdated: new Date().toISOString(),
-      note: 'LinkedIn API integration active. Activity limited by API permissions.'
-    };
   } catch (error) {
-    console.error('LinkedIn API fetch error:', error);
+    console.error('LinkedIn scraping error:', error);
     return null;
   }
 }
+
