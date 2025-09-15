@@ -80,14 +80,27 @@ export default function HomePage() {
             href={githubData?.recentActivity?.[0]?.url || 'https://github.com/JaiBhatia19'}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer"
+            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
           >
             <div className="flex items-center space-x-3 mb-3">
               <Github className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold">Latest Commit</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              {githubData?.recentActivity?.[0]?.message || 'Enhanced demo automation with AI-powered test generation'}
+              {(() => {
+                const commitMessage = githubData?.recentActivity?.[0]?.message || 'Enhanced demo automation with AI-powered test generation';
+                // Filter out website-related commits and summarize
+                if (commitMessage.toLowerCase().includes('website') || 
+                    commitMessage.toLowerCase().includes('portfolio') ||
+                    commitMessage.toLowerCase().includes('personal-site')) {
+                  return 'Working on AI-powered automation solutions';
+                }
+                // Summarize long commit messages
+                if (commitMessage.length > 60) {
+                  return commitMessage.substring(0, 57) + '...';
+                }
+                return commitMessage;
+              })()}
             </p>
             <p className="text-xs text-muted-foreground mt-2">
               {githubData?.recentActivity?.[0]?.timestamp 
@@ -101,7 +114,7 @@ export default function HomePage() {
             href="https://www.linkedin.com/in/jaibhatia19/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer"
+            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
           >
             <div className="flex items-center space-x-3 mb-3">
               <Linkedin className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
@@ -117,14 +130,23 @@ export default function HomePage() {
             href={githubData?.projects?.[0]?.url || 'https://github.com/JaiBhatia19'}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer"
+            className="bg-card rounded-lg p-6 border hover:shadow-lg transition-all duration-200 hover:border-primary/50 group cursor-pointer h-32 flex flex-col justify-between"
           >
             <div className="flex items-center space-x-3 mb-3">
               <TrendingUp className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold">Project Update</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              {githubData?.projects?.[0]?.description || 'Launched new ML model improving test accuracy by 20%'}
+              {(() => {
+                const projectDesc = githubData?.projects?.[0]?.description || 'Launched new ML model improving test accuracy by 20%';
+                // Filter out website-related projects
+                if (projectDesc.toLowerCase().includes('website') || 
+                    projectDesc.toLowerCase().includes('portfolio') ||
+                    projectDesc.toLowerCase().includes('personal-site')) {
+                  return 'Building AI-powered customer feedback analysis tools';
+                }
+                return projectDesc;
+              })()}
             </p>
             <p className="text-xs text-muted-foreground mt-2">
               {githubData?.projects?.[0]?.lastUpdated 
