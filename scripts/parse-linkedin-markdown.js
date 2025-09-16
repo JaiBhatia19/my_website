@@ -98,7 +98,7 @@ function parseLinkedInMarkdown() {
     
     // Create the JSON structure
     const jsonData = {
-      posts: posts.slice(0, 8) // Keep only the 8 most recent posts
+      posts: posts.slice(0, 3) // Keep only the 3 most recent posts
     };
     
     // Write to JSON file

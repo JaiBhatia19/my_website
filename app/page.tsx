@@ -88,7 +88,7 @@ export default function HomePage() {
           // Smart content presentation based on the actual post
           const getSmartContent = (content: string, index: number) => {
             // Check for specific content patterns in order of priority
-            if (content.includes('AI education') || content.includes('neural networks') || content.includes('NotebookLM')) {
+            if (content.includes('NotebookLM') || content.includes('neural networks') || content.includes('AI fundamentals')) {
               return {
                 title: 'AI Education',
                 summary: 'Built an AI fundamentals shortcut using NotebookLM - condensed best AI videos into digestible 30-min podcast and 8-min highlights for busy professionals.',
@@ -102,18 +102,25 @@ export default function HomePage() {
                 icon: TrendingUp
               };
             }
-            if (content.includes('Olivia Gambelin') || content.includes('responsible AI')) {
+            if (content.includes('Olivia Gambelin') && content.includes('CAST 2025')) {
               return {
                 title: 'Industry Insight',
                 summary: 'Shared insights from CAST 2025 on responsible AI in testing - emphasizing that real progress comes from human expertise.',
                 icon: Brain
               };
             }
-            if (content.includes('language modeling') || content.includes('chatbot') || content.includes('grounding')) {
+            if (content.includes('language modeling') && content.includes('grounding') && content.includes('vibes at scale')) {
               return {
                 title: 'Tech Perspective',
                 summary: 'Reflecting on AI limitations - language models without grounding are just "vibes at scale." The real frontier is understanding.',
                 icon: Brain
+              };
+            }
+            if (content.includes('Come find us') && content.includes('CAST2025')) {
+              return {
+                title: 'Conference Update',
+                summary: 'Excited to be at CAST 2025 - connecting with the testing community and sharing insights on AI in testing.',
+                icon: TrendingUp
               };
             }
             if (content.includes('AWS') || content.includes('Q Builder')) {

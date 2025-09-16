@@ -50,3 +50,5 @@ Chatbot said "Glad I could assist you."
 Turns out, language modeling without grounding is just vibes at scale.
 
 The real frontier isn't bigger models, it's models that understand.
+
+## LINKEDIN POST

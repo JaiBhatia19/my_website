@@ -1,5 +1,9 @@
 import fs from 'fs/promises';
 import path from 'path';
+import matter from 'gray-matter';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import remarkHtml from 'remark-html';
 
 export interface ProfileData {
   name: string;
@@ -132,26 +136,27 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
       if (file.endsWith('.mdx')) {
         const slug = file.replace('.mdx', '');
         const filePath = path.join(postsDir, file);
-        const content = await fs.readFile(filePath, 'utf-8');
+        const fileContent = await fs.readFile(filePath, 'utf-8');
         
-        // Extract frontmatter
-        const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
-        if (frontmatterMatch) {
-          const frontmatter = frontmatterMatch[1];
-          const titleMatch = frontmatter.match(/title:\s*(.+)/);
-          const descriptionMatch = frontmatter.match(/description:\s*(.+)/);
-          const dateMatch = frontmatter.match(/date:\s*(.+)/);
-          const tagsMatch = frontmatter.match(/tags:\s*\[(.*?)\]/);
-          
-          posts.push({
-            slug,
-            title: titleMatch?.[1] || 'Untitled',
-            description: descriptionMatch?.[1] || '',
-            date: dateMatch?.[1] || new Date().toISOString(),
-            content: content.replace(/^---\n[\s\S]*?\n---\n/, ''),
-            tags: tagsMatch?.[1]?.split(',').map(tag => tag.trim()) || []
-          });
-        }
+        // Parse frontmatter and content using gray-matter
+        const { data: frontmatter, content: markdownContent } = matter(fileContent);
+        
+        // Process markdown to HTML
+        const processedContent = await remark()
+          .use(remarkGfm)
+          .use(remarkHtml, { sanitize: false })
+          .process(markdownContent);
+        
+        const htmlContent = processedContent.toString();
+        
+        posts.push({
+          slug,
+          title: (frontmatter.title || 'Untitled').replace(/^["']|["']$/g, ''),
+          description: (frontmatter.description || '').replace(/^["']|["']$/g, ''),
+          date: frontmatter.date || new Date().toISOString(),
+          content: htmlContent,
+          tags: frontmatter.tags || []
+        });
       }
     }
     

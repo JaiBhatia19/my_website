@@ -20,13 +20,6 @@
       "type": "post",
       "date": "2025-09-13",
       "hasComment": true
-    },
-    {
-      "id": "5",
-      "content": "Chatbot said \"Glad I could assist you.\" Turns out, language modeling without grounding is just vibes at scale. The real frontier isn't bigger models, it's models that understand.",
-      "type": "post",
-      "date": "2025-09-11",
-      "hasComment": true
     }
   ]
 }
