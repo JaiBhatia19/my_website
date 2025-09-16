@@ -147,7 +147,10 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
           .use(remarkHtml, { sanitize: false })
           .process(markdownContent);
         
-        const htmlContent = processedContent.toString();
+        let htmlContent = processedContent.toString();
+        
+        // Remove the first h1 tag since the title is already displayed in the page header
+        htmlContent = htmlContent.replace(/<h1[^>]*>.*?<\/h1>/s, '');
         
         posts.push({
           slug,
