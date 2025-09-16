@@ -5,6 +5,8 @@ import { Download, Award, GraduationCap, Code, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'About',
   description: 'Learn more about my background, values, and the tools I use to build great products.',

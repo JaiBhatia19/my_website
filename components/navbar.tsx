@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -21,6 +21,9 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const pathname = usePathname();
+  const { scrollY } = useScroll();
+  const navHeight = useTransform(scrollY, [0, 100], [80, 64]);
+  const navOpacity = useTransform(scrollY, [0, 100], [0.95, 0.8]);
 
   useEffect(() => {
     // Check for saved theme preference or default to system preference
@@ -31,6 +34,7 @@ export function Navbar() {
       setIsDark(true);
       document.documentElement.classList.add('dark');
     }
+
   }, []);
 
   const toggleTheme = () => {
@@ -47,73 +51,123 @@ export function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">JB</span>
-            </div>
-            <span className="font-bold text-xl">Jai Bhatia</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  'text-sm font-medium transition-colors hover:text-primary',
-                  pathname === item.href
-                    ? 'text-primary'
-                    : 'text-muted-foreground'
-                )}
-              >
-                {item.name}
+    <motion.nav 
+      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl"
+      style={{ 
+        height: navHeight,
+        opacity: navOpacity
+      }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="glass-card rounded-2xl border border-white/20 shadow-2xl">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between h-full">
+            {/* Logo */}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href="/" className="flex items-center space-x-3">
+                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
+                  <span className="text-primary-foreground font-bold text-sm">JB</span>
+                </div>
+                <span className="font-display font-bold text-xl">Jai Bhatia</span>
               </Link>
-            ))}
-          </div>
+            </motion.div>
 
-          {/* Resume Download & Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
-            <Button
-              variant="outline"
-              size="sm"
-              className="hidden md:flex"
-              asChild
-            >
-              <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
-                📄 Resume
-              </a>
-            </Button>
-            
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="hidden sm:flex"
-            >
-              {isDark ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-1">
+              {navigation.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      'relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg',
+                      pathname === item.href
+                        ? 'text-primary'
+                        : 'text-muted-foreground hover:text-foreground'
+                    )}
+                  >
+                    {item.name}
+                    {pathname === item.href && (
+                      <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-primary/60 rounded-full"
+                        layoutId="activeTab"
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
 
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
+            {/* Resume Download & Theme Toggle & Mobile Menu Button */}
+            <div className="flex items-center space-x-3">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="hidden md:flex glass-card border-primary/20 hover:border-primary/40"
+                  asChild
+                >
+                  <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
+                    📄 Resume
+                  </a>
+                </Button>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={toggleTheme}
+                  className="hidden sm:flex rounded-full glass-card hover:border-primary/20"
+                >
+                  {isDark ? (
+                    <Sun className="h-5 w-5" />
+                  ) : (
+                    <Moon className="h-5 w-5" />
+                  )}
+                </Button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden rounded-full glass-card hover:border-primary/20"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {isOpen ? (
+                    <X className="h-5 w-5" />
+                  ) : (
+                    <Menu className="h-5 w-5" />
+                  )}
+                </Button>
+              </motion.div>
+            </div>
           </div>
         </div>
 
@@ -124,59 +178,77 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t"
+              className="md:hidden border-t border-white/10 mt-4"
             >
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                {navigation.map((item) => (
-                  <Link
+              <div className="px-4 pt-4 pb-6 space-y-2">
+                {navigation.map((item, index) => (
+                  <motion.div
                     key={item.name}
-                    href={item.href}
-                    className={cn(
-                      'block px-3 py-2 text-base font-medium rounded-md transition-colors',
-                      pathname === item.href
-                        ? 'text-primary bg-primary/10'
-                        : 'text-muted-foreground hover:text-primary hover:bg-primary/10'
-                    )}
-                    onClick={() => setIsOpen(false)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    {item.name}
-                  </Link>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        'block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300',
+                        pathname === item.href
+                          ? 'text-primary bg-primary/10 border border-primary/20'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-white/5'
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
                 ))}
-                <div className="px-3 py-2 space-y-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full justify-start"
-                    asChild
+                <div className="px-4 pt-4 space-y-3">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
                   >
-                    <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
-                      📄 Resume
-                    </a>
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={toggleTheme}
-                    className="w-full justify-start"
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full justify-start glass-card border-primary/20"
+                      asChild
+                    >
+                      <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
+                        📄 Resume
+                      </a>
+                    </Button>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.5 }}
                   >
-                    {isDark ? (
-                      <>
-                        <Sun className="h-4 w-4 mr-2" />
-                        Light Mode
-                      </>
-                    ) : (
-                      <>
-                        <Moon className="h-4 w-4 mr-2" />
-                        Dark Mode
-                      </>
-                    )}
-                  </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={toggleTheme}
+                      className="w-full justify-start glass-card hover:border-primary/20"
+                    >
+                      {isDark ? (
+                        <>
+                          <Sun className="h-4 w-4 mr-2" />
+                          Light Mode
+                        </>
+                      ) : (
+                        <>
+                          <Moon className="h-4 w-4 mr-2" />
+                          Dark Mode
+                        </>
+                      )}
+                    </Button>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

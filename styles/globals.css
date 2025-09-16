@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,401,901,400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,12 +7,14 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --background-gradient: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 221.2 83.2% 53.3%;
+    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 84% 4.9%;
@@ -19,6 +22,8 @@
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96%;
     --accent-foreground: 222.2 84% 4.9%;
+    --warm-accent: 24 9.8% 83%;
+    --warm-accent-foreground: 222.2 84% 4.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
@@ -26,16 +31,22 @@
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
     --font-inter: 'Inter', system-ui, sans-serif;
+    --font-satoshi: 'Satoshi', system-ui, sans-serif;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --noise-opacity: 0.02;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
+    --background-gradient: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
     --primary: 217.2 91.2% 59.8%;
+    --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
     --primary-foreground: 222.2 84% 4.9%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -43,11 +54,16 @@
     --muted-foreground: 215 20.2% 65.1%;
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
+    --warm-accent: 24 9.8% 83%;
+    --warm-accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 94.1%;
+    --glass-bg: rgba(15, 23, 42, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --noise-opacity: 0.03;
   }
 }
 
@@ -89,19 +105,76 @@
   }
   
   .section {
-    @apply py-16 sm:py-20 lg:py-24;
+    @apply py-24 sm:py-28 lg:py-32;
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    background: var(--primary-gradient);
+    @apply bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-hero {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #1e40af 100%);
+    @apply bg-clip-text text-transparent;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02];
+  }
+  
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    @apply rounded-xl;
   }
   
   .focus-ring {
     @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  .noise-texture {
+    position: relative;
+  }
+  
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: var(--noise-opacity);
+  }
+  
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--primary-gradient);
+    z-index: 100;
+    transition: width 0.1s ease;
+  }
+  
+  .custom-cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.2s ease;
+  }
+  
+  .custom-cursor.hover {
+    transform: scale(2);
+    background: hsl(var(--primary));
+    opacity: 0.5;
   }
 }
 

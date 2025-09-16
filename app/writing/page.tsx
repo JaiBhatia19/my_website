@@ -5,6 +5,8 @@ import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { formatDate } from '@/lib/utils';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Writing',
   description: 'Thoughts on sales engineering, AI, and building products that matter.',

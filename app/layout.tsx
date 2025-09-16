@@ -2,8 +2,12 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import React from 'react';
 import './globals.css';
-import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('@/components/navbar').then(mod => ({ default: mod.Navbar })), { ssr: false });
+const ScrollProgress = dynamic(() => import('@/components/scroll-progress').then(mod => ({ default: mod.ScrollProgress })), { ssr: false });
+const CustomCursor = dynamic(() => import('@/components/custom-cursor').then(mod => ({ default: mod.CustomCursor })), { ssr: false });
 
 const inter = Inter({
   subsets: ['latin'],
@@ -70,10 +74,12 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="canonical" href="https://jaibhatia.dev" />
       </head>
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body className="min-h-screen bg-background font-sans antialiased noise-texture">
+        <ScrollProgress />
+        <CustomCursor />
         <div className="relative flex min-h-screen flex-col">
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-20">{children}</main>
           <Footer />
         </div>
       </body>
