@@ -32,7 +32,7 @@ export function Hero({ profile }: HeroProps) {
   }, [taglines.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden noise-texture">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden noise-texture pt-24">
       {/* Enhanced background gradient */}
       <div className="absolute inset-0" style={{ background: 'var(--background-gradient)' }} />
       

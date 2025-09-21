@@ -23,7 +23,8 @@ export function Navbar() {
   const pathname = usePathname();
   const { scrollY } = useScroll();
   const navHeight = useTransform(scrollY, [0, 100], [80, 64]);
-  const navOpacity = useTransform(scrollY, [0, 100], [0.95, 0.8]);
+  const navOpacity = useTransform(scrollY, [0, 50], [0.95, 0.85]);
+  const navY = useTransform(scrollY, [0, 100], [0, -10]);
 
   useEffect(() => {
     // Check for saved theme preference or default to system preference
@@ -52,10 +53,11 @@ export function Navbar() {
 
   return (
     <motion.nav 
-      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl"
+      className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[calc(100%-3rem)] max-w-6xl"
       style={{ 
         height: navHeight,
-        opacity: navOpacity
+        opacity: navOpacity,
+        y: navY
       }}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}

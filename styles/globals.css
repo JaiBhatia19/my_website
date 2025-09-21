@@ -5,6 +5,11 @@
 @tailwind utilities;
 
 @layer base {
+  /* Ensure proper spacing for navbar across all pages */
+  body {
+    padding-top: 6rem; /* Account for navbar height + spacing */
+  }
+  
   :root {
     --background: 0 0% 100%;
     --background-gradient: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
