@@ -120,7 +120,7 @@ export function Navbar() {
                   className="hidden md:flex glass-card border-primary/20 hover:border-primary/40"
                   asChild
                 >
-                  <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
+                  <a href="/resume" target="_blank" rel="noopener noreferrer">
                     📄 Resume
                   </a>
                 </Button>
@@ -214,7 +214,7 @@ export function Navbar() {
                       className="w-full justify-start glass-card border-primary/20"
                       asChild
                     >
-                      <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
+                      <a href="/resume" target="_blank" rel="noopener noreferrer">
                         📄 Resume
                       </a>
                     </Button>

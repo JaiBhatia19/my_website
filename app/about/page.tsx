@@ -3,7 +3,7 @@ import { CustomCard } from '@/components/card';
 import { getProfileData } from '@/lib/content';
 import { Download, Award, GraduationCap, Code, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+import { FallbackImage } from '@/components/fallback-image';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,13 +30,15 @@ export default async function AboutPage() {
               {/* Profile Photo */}
               <div className="flex justify-center lg:justify-start mb-8">
                 <div className="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-primary/20">
-                  <Image
+                  <FallbackImage
                     src="/images/profile.jpg"
                     alt="Jai Bhatia"
                     width={128}
                     height={128}
                     className="object-cover w-full h-full"
                     priority
+                    sizes="(max-width: 768px) 128px, 128px"
+                    quality={90}
                   />
                 </div>
               </div>
@@ -80,7 +82,7 @@ export default async function AboutPage() {
               </CustomCard>
               
               <Button asChild className="w-full">
-                <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
+                <a href="/resume" target="_blank" rel="noopener noreferrer">
                   <Download className="h-4 w-4 mr-2" />
                   View Resume
                 </a>

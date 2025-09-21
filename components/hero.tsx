@@ -2,9 +2,9 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { FallbackImage } from '@/components/fallback-image';
 import { getProfileData } from '@/lib/content';
 import { useEffect, useState } from 'react';
 
@@ -91,13 +91,15 @@ export function Hero({ profile }: HeroProps) {
             className="flex justify-center mb-12"
           >
             <div className="relative w-40 h-40 rounded-full overflow-hidden ring-4 ring-primary/30 shadow-2xl">
-              <Image
+              <FallbackImage
                 src="/images/profile.jpg"
                 alt={profile.name}
                 width={160}
                 height={160}
                 className="object-cover w-full h-full"
                 priority
+                sizes="(max-width: 768px) 160px, 160px"
+                quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
             </div>
@@ -152,7 +154,7 @@ export function Hero({ profile }: HeroProps) {
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button asChild size="lg" className="group glass-card border-primary/20 hover:border-primary/40">
-                <a href="/Jai_Bhatia_Resume.html" target="_blank" rel="noopener noreferrer">
+                <a href="/resume" target="_blank" rel="noopener noreferrer">
                   📄 Download Resume
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
