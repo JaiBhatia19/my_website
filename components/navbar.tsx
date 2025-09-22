@@ -22,9 +22,9 @@ export function Navbar() {
   const [isDark, setIsDark] = useState(false);
   const pathname = usePathname();
   const { scrollY } = useScroll();
-  const navHeight = useTransform(scrollY, [0, 100], [80, 64]);
-  const navOpacity = useTransform(scrollY, [0, 50], [0.95, 0.85]);
-  const navY = useTransform(scrollY, [0, 100], [0, -10]);
+  const navHeight = useTransform(scrollY, [0, 100], [72, 64]);
+  const navOpacity = useTransform(scrollY, [0, 50], [0.95, 0.9]);
+  const navY = useTransform(scrollY, [0, 100], [0, -5]);
 
   useEffect(() => {
     // Check for saved theme preference or default to system preference
@@ -53,7 +53,7 @@ export function Navbar() {
 
   return (
     <motion.nav 
-      className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[calc(100%-3rem)] max-w-6xl"
+      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl sm:w-[calc(100%-3rem)] sm:top-6"
       style={{ 
         height: navHeight,
         opacity: navOpacity,
@@ -64,17 +64,41 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="glass-card rounded-2xl border border-white/20 shadow-2xl">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/" className="flex items-center space-x-3">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
-                  <span className="text-primary-foreground font-bold text-sm">JB</span>
+              <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
+                <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
+                  <span className="text-primary-foreground font-bold text-xs sm:text-sm">JB</span>
                 </div>
-                <span className="font-display font-bold text-xl">Jai Bhatia</span>
+                <span className="font-display font-bold text-lg sm:text-xl">Jai Bhatia</span>
               </Link>
             </motion.div>
+
+            {/* Compact Mobile Navigation */}
+            <div className="hidden sm:flex md:hidden items-center space-x-1">
+              {navigation.slice(0, 3).map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      'relative px-2 py-1 text-xs font-medium transition-all duration-300 rounded-lg',
+                      pathname === item.href
+                        ? 'text-primary'
+                        : 'text-muted-foreground hover:text-foreground'
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
@@ -108,7 +132,7 @@ export function Navbar() {
             </div>
 
             {/* Resume Download & Theme Toggle & Mobile Menu Button */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -119,7 +143,7 @@ export function Navbar() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="hidden md:flex glass-card border-primary/20 hover:border-primary/40"
+                  className="hidden sm:flex glass-card border-primary/20 hover:border-primary/40"
                   asChild
                 >
                   <a href="/resume" target="_blank" rel="noopener noreferrer">
@@ -159,7 +183,7 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden rounded-full glass-card hover:border-primary/20"
+                  className="sm:hidden rounded-full glass-card hover:border-primary/20"
                   onClick={() => setIsOpen(!isOpen)}
                 >
                   {isOpen ? (
@@ -180,7 +204,7 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-white/10 mt-4"
+              className="sm:hidden border-t border-white/10 mt-4"
             >
               <div className="px-4 pt-4 pb-6 space-y-2">
                 {navigation.map((item, index) => (
