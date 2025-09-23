@@ -1,5 +1,5 @@
 import { Section, SectionHeader } from '@/components/server-section';
-import { CustomCard } from '@/components/card';
+import { CustomCard } from '@/components/server-card';
 import { getBlogPosts } from '@/lib/content';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';

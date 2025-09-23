@@ -96,16 +96,10 @@ export interface BlogPost {
   tags: string[];
 }
 
-let profileCache: ProfileData | null = null;
-let projectsCache: ProjectData[] | null = null;
-
 export async function getProfileData(): Promise<ProfileData> {
-  if (profileCache) return profileCache;
-  
   try {
     const data = await fs.readFile(path.join(process.cwd(), 'data', 'profile.json'), 'utf-8');
-    profileCache = JSON.parse(data);
-    return profileCache!;
+    return JSON.parse(data);
   } catch (error) {
     console.error('Error loading profile data:', error);
     throw new Error('Profile data not found. Run `pnpm run build-content` first.');
@@ -113,12 +107,9 @@ export async function getProfileData(): Promise<ProfileData> {
 }
 
 export async function getProjectsData(): Promise<ProjectData[]> {
-  if (projectsCache) return projectsCache;
-  
   try {
     const data = await fs.readFile(path.join(process.cwd(), 'data', 'projects.json'), 'utf-8');
-    projectsCache = JSON.parse(data);
-    return projectsCache!;
+    return JSON.parse(data);
   } catch (error) {
     console.error('Error loading projects data:', error);
     throw new Error('Projects data not found. Run `pnpm run build-content` first.');
