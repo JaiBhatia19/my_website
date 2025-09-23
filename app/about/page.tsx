@@ -1,5 +1,4 @@
 import { Section, SectionHeader } from '@/components/server-section';
-import { getProfileData } from '@/lib/content';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,8 +8,6 @@ export const metadata = {
 };
 
 export default async function AboutPage() {
-  const profile = await getProfileData();
-
   return (
     <div className="space-y-16">
       <Section>
