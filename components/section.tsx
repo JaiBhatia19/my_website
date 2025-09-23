@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface SectionProps {
