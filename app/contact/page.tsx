@@ -1,4 +1,4 @@
-import { Section, SectionHeader } from '@/components/section';
+import { Section, SectionHeader } from '@/components/server-section';
 import { ContactForm } from '@/components/contact-form';
 import { getProfileData } from '@/lib/content';
 import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';

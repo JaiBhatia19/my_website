@@ -1,6 +1,6 @@
 'use client';
 
-import { Section, SectionHeader } from '@/components/section';
+import { Section, SectionHeader } from '@/components/server-section';
 import { RepoCard } from '@/components/repo-card';
 import { getProjectsDataClient } from '@/lib/content-client';
 import { useEffect, useState } from 'react';

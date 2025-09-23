@@ -1,4 +1,4 @@
-import { Section, SectionHeader } from '@/components/section';
+import { Section, SectionHeader } from '@/components/server-section';
 import { CustomCard } from '@/components/card';
 import { getProfileData } from '@/lib/content';
 import { Download, Award, GraduationCap, Code, MapPin } from 'lucide-react';

@@ -16,7 +16,7 @@ export function Hero({ profile }: HeroProps) {
   const [currentTagline, setCurrentTagline] = useState(0);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -30]);
-  const opacity = useTransform(scrollY, [0, 200], [1, 0.3]);
+  const opacity = useTransform(scrollY, [0, 200], [1, 0.8]);
 
   const taglines = [
     "Sales Engineer",

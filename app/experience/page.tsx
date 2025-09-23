@@ -1,4 +1,4 @@
-import { Section, SectionHeader } from '@/components/section';
+import { Section, SectionHeader } from '@/components/server-section';
 import { Timeline } from '@/components/timeline';
 import { getProfileData } from '@/lib/content';
 

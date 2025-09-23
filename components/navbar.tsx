@@ -204,7 +204,7 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="sm:hidden border-t border-white/10 mt-4"
+              className="sm:hidden border-t border-white/20 mt-4 bg-black/80 backdrop-blur-md"
             >
               <div className="px-4 pt-4 pb-6 space-y-2">
                 {navigation.map((item, index) => (
@@ -217,10 +217,10 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       className={cn(
-                        'block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300',
+                        'block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 text-white',
                         pathname === item.href
-                          ? 'text-primary bg-primary/10 border border-primary/20'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-white/5'
+                          ? 'text-primary bg-primary/20 border border-primary/30'
+                          : 'text-white hover:text-primary hover:bg-white/10'
                       )}
                       onClick={() => setIsOpen(false)}
                     >

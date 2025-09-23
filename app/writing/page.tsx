@@ -1,4 +1,4 @@
-import { Section, SectionHeader } from '@/components/section';
+import { Section, SectionHeader } from '@/components/server-section';
 import { CustomCard } from '@/components/card';
 import { getBlogPosts } from '@/lib/content';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
