@@ -53,7 +53,7 @@ export function Navbar() {
 
   return (
     <motion.nav 
-      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl sm:w-[calc(100%-3rem)] sm:top-6"
+      className="fixed top-0 left-0 right-0 z-50 w-full"
       style={{ 
         height: navHeight,
         opacity: navOpacity,
@@ -63,7 +63,7 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="glass-card rounded-2xl border border-white/20 shadow-2xl">
+      <div className="glass-card border-b border-white/20 shadow-2xl">
         <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}

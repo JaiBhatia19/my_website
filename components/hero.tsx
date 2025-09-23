@@ -15,8 +15,8 @@ interface HeroProps {
 export function Hero({ profile }: HeroProps) {
   const [currentTagline, setCurrentTagline] = useState(0);
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 300], [0, -50]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const y = useTransform(scrollY, [0, 300], [0, -30]);
+  const opacity = useTransform(scrollY, [0, 200], [1, 0.3]);
 
   const taglines = [
     "Sales Engineer",
@@ -32,7 +32,7 @@ export function Hero({ profile }: HeroProps) {
   }, [taglines.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden noise-texture pt-20 sm:pt-24">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden noise-texture pt-20">
       {/* Enhanced background gradient */}
       <div className="absolute inset-0" style={{ background: 'var(--background-gradient)' }} />
       
