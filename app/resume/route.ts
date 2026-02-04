@@ -8,7 +8,7 @@ export async function GET() {
   try {
     const resumePath = join(process.cwd(), 'public', RESUME_FILENAME);
     const resumeBuffer = await readFile(resumePath);
-    return new NextResponse(resumeBuffer, {
+    return new NextResponse(new Uint8Array(resumeBuffer), {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': 'inline; filename="Jai_Bhatia_Resume.pdf"',
