@@ -104,7 +104,7 @@
   "certifications": [
     "AWS Partner Accreditation (Technical): 2025",
     "AWS Technical Essentials: 2025",
-    "ServiceNow Certified Systems Administrator: 2026"
+    "ServiceNow Certified Systems Administrator: 2025"
   ],
   "awards": [],
   "personalProjects": [
@@ -123,7 +123,7 @@
     {
       "name": "Personal Website",
       "description": "Production portfolio built with Next.js and TypeScript.",
-      "url": "https://github.com/JaiBhatia19/my_website",
+      "url": "https://github.com/JaiBhatia19/jai-bhatia-personal-site",
       "technologies": ["Next.js", "TypeScript", "Vercel"],
       "status": "Live",
       "achievements": [

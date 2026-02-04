@@ -58,9 +58,8 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  // Add google-site-verification meta when you have a code from Search Console
+  // verification: { google: 'your-code-here' },
 };
 
 export default function RootLayout({

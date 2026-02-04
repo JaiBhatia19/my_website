@@ -8,16 +8,16 @@ export async function getProfileDataClient() {
     return await response.json();
   } catch (error) {
     console.error('Error fetching profile data:', error);
-    // Return fallback data
+    // Return fallback data (aligned with data/profile.json; resume.pdf is canonical for accomplishments)
     return {
       name: 'Jai Bhatia',
-      headline: 'Sales Engineer and AI-minded Solutions Architect building useful products',
+      headline: 'Customer-facing technologist specializing in technical sales and applied AI',
       location: 'Los Angeles, CA',
       email: 'jaibhatia1906@gmail.com',
       phone: '(619) 866-5632',
       linkedin: 'https://www.linkedin.com/in/jaibhatia19/',
       github: 'https://github.com/JaiBhatia19',
-      summary: 'AI-powered solutions architect with expertise in test automation, data science, and technical sales.',
+      summary: 'Customer-facing technologist specializing in technical sales and applied AI, with experience designing enterprise solutions and delivering over 30 virtual demos for banking and insurance clients. Skilled at leveraging automation and AI-enabled workflows to advance sales opportunities and generate qualified meetings across digital channels.',
       experience: [],
       education: [],
       skills: [],
