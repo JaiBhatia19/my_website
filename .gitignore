@@ -76,7 +76,9 @@ dist
 
 # Gatsby files
 .cache/
-public
+# Ignore public folder contents except resume PDF (so /resume works in production)
+public/*
+!public/resume.pdf
 
 # Storybook build outputs
 .out

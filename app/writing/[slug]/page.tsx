@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Written by <strong>Jai Bhatia</strong>
             </p>
             <p className="text-sm text-muted-foreground">
-              Sales Engineer & AI Solutions Architect
+              Customer-facing technologist specializing in technical sales and applied AI
             </p>
           </div>
           <Button asChild>

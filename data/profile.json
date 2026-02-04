@@ -1,83 +1,75 @@
 {
   "name": "Jai Bhatia",
-  "headline": "Sales Engineer & AI Solutions Architect | Building the future, one line of code at a time",
+  "headline": "Customer-facing technologist specializing in technical sales and applied AI",
   "location": "Los Angeles, CA",
   "email": "jaibhatia1906@gmail.com",
   "phone": "(619) 866-5632",
   "linkedin": "https://www.linkedin.com/in/jaibhatia19/",
   "github": "https://github.com/JaiBhatia19",
-  "summary": "Turning coffee into code and customer feedback into AI-powered solutions. Passionate about building tools that actually solve real problems, not just demos.",
+  "summary": "Customer-facing technologist specializing in technical sales and applied AI, with experience designing enterprise solutions and delivering over 30 virtual demos for banking and insurance clients. Skilled at leveraging automation and AI-enabled workflows to advance sales opportunities and generate qualified meetings across digital channels. Proven collaborator with marketing and ecosystem teams, translating customer needs into pilots and product enhancements.",
   "experience": [
     {
       "company": "Watermelon Software Inc.",
       "position": "Sales Engineer",
-      "location": "Los Angeles, CA",
+      "location": "Remote, CA",
       "startDate": "Oct 2024",
       "endDate": "Present",
       "current": true,
-      "description": "AI-powered test automation platform helping companies ship faster and avoid downtime.",
+      "description": "Technical sales and enterprise solution design.",
       "achievements": [
-        "Led 30+ discovery sessions with executives, IT, and business teams to uncover needs and design tailored technical solutions for banks, insurance, and reseller verticals",
-        "Partnered with product, engineering, and delivery teams to map customer pain points, translate requirements into technical execution, and align teams around shared priorities",
-        "Built reusable demo kits, interactive Storylane walkthroughs, and Loom explainers, reducing prep time by 30% and improving communication of complex features",
-        "Captured and analyzed client requirements to inform roadmap planning and create scalable solution designs that addressed recurring industry challenges",
-        "Synthesized insights from client and prospect conversations, directly shaping three new product features and guiding go-to-market strategy decisions",
-        "Engaged with industry leaders at software testing and QA conferences, uncovering emerging market trends and identifying opportunities for collaboration and innovation",
-        "Supported implementation and partner pilots, ensuring smooth onboarding and technical handoffs across cross-functional teams"
+        "Led technical discovery across QA, IT, security, and business teams to define success criteria, integrations, and pilot scope for enterprise evaluations, demonstrating product sales proficiency",
+        "Designed and delivered 30+ virtual technical demos for banking and insurance customers, leveraging technical demo delivery to advance accounts into technical validation and pilot stages",
+        "Built a production-grade automation workflow using n8n to ingest target accounts, enrich decision-makers, generate focused outbound messages, optimize digital channels, track state, and post summaries to Slack, creating a repeatable path to qualified meetings",
+        "Synthesized insights from 50+ customer and prospect conversations into clear product requirements, contributing directly to three roadmap features that shipped",
+        "Created reusable demo kits and walkthroughs to standardize technical storytelling, showcasing product sales proficiency and reducing preparation time",
+        "Supported pilots and handoffs with customer success and partners using documented architectures, runbooks, and acceptance criteria in a high-volume sales environment to shorten time to first value"
       ],
       "technologies": [
-        "Python",
-        "SQL",
-        "AWS",
-        "LangChain",
-        "Storylane",
-        "Loom",
-        "HubSpot",
-        "Sales Navigator"
+        "n8n",
+        "Slack",
+        "Technical discovery",
+        "Pilot scoping"
       ]
     },
     {
       "company": "Watermelon Software Inc.",
       "position": "Data Scientist",
-      "location": "Los Angeles, CA",
+      "location": "Remote, CA",
       "startDate": "Sep 2023",
       "endDate": "Oct 2024",
       "current": false,
-      "description": "Joined the ML R&D team, building QA automation and management tools for the enterprise.",
+      "description": "ML and GenAI for QA automation and test authoring.",
       "achievements": [
-        "Collaborated with engineering and research teams to launch a screen classification model, raising element detection accuracy on QA test steps by 20%",
-        "Co-developed a test case prioritization engine, reducing regression suite runtime by 25% for enterprise customers",
-        "Supported prototyping of GenAI test case writers (LangChain, RAG) to generate automated QA flows from product specs, accelerating test authoring and release cycles",
-        "Worked across QA, product, and customer-facing groups to ship ML features that were adopted internally and by customers, improving reliability in large testing orgs"
+        "Shipped a screen classification model used in automated testing workflows, improving UI element detection accuracy by 2%",
+        "Co-developed a test case prioritization engine that reduced enterprise regression runtimes by 10% using historical signals and risk ranking",
+        "Prototyped GenAI-based test authoring using LangChain and retrieval from product specifications, reducing manual test creation and accelerating release cycles",
+        "Worked closely with product, engineering, and customer-facing teams to productionize ML features used in real enterprise environments"
       ],
       "technologies": [
         "Python",
-        "Machine Learning",
         "LangChain",
-        "RAG",
-        "AWS",
-        "MLOps"
+        "Machine Learning",
+        "GenAI"
       ]
     }
   ],
   "education": [
     {
-      "institution": "UC San Diego, Rady School of Management",
+      "institution": "University of California, San Diego - Rady School of Management",
       "degree": "M.S.",
       "field": "Business Analytics",
-      "location": "San Diego, CA",
-      "startDate": "July 2022",
-      "endDate": "June 2023",
+      "location": "San Diego",
+      "startDate": "Jul 2022",
+      "endDate": "Jun 2023",
       "achievements": [
-        "Academic Fellowship Recipient",
-        "Capstone: Data Analyst at sway.ai - Built influencer detection system using NLP and social graph analytics (Python, Tableau, YouTube API); improved sentiment analysis for 10M+ posts by 30%"
+        "Academic Fellowship Recipient"
       ]
     },
     {
-      "institution": "UC San Diego",
+      "institution": "University of California, San Diego",
       "degree": "B.S.",
-      "field": "Mathematics & Economics; Minor in Business",
-      "location": "San Diego, CA",
+      "field": "Mathematics and Economics, Minor in Business",
+      "location": "San Diego",
       "startDate": "Sep 2018",
       "endDate": "Jun 2022"
     }
@@ -86,81 +78,68 @@
     "Python",
     "SQL",
     "OpenAI API",
-    "AWS (Lambda, S3, EC2)",
-    "n8n",
-    "Postman",
-    "HubSpot",
-    "Sales Navigator",
-    "Notion",
-    "Jira",
-    "Confluence",
-    "Swagger",
     "LangChain",
     "Hugging Face",
-    "Storylane",
-    "Loom"
+    "n8n",
+    "Supabase",
+    "Postman",
+    "Jira",
+    "Confluence",
+    "AWS Lambda",
+    "AWS S3",
+    "AWS EC2",
+    "Terraform",
+    "Technical discovery",
+    "System architecture",
+    "Proof-of-concept design",
+    "Pilot scoping",
+    "Executive communication",
+    "ML integration",
+    "GenAI workflows",
+    "RAG",
+    "APIs",
+    "Webhooks",
+    "Event-driven workflows"
   ],
   "certifications": [
-    "AWS Partner Accreditation (Technical)",
-    "AWS Technical Essentials",
-    "AWS SAA (Aug 2025)"
+    "AWS Partner Accreditation (Technical): 2025",
+    "AWS Technical Essentials: 2025",
+    "ServiceNow Certified Systems Administrator: 2026"
   ],
-  "awards": [
-    "Promoted within 1 year; recognized by CEO & Product team for impact on roadmap and go-to-market"
-  ],
+  "awards": [],
   "personalProjects": [
     {
       "name": "SignalNote",
-      "description": "AI-powered app that transforms customer feedback into actionable product signals",
+      "description": "Open-source customer feedback analysis tool.",
       "url": "https://signalnote.vercel.app",
-      "technologies": ["React", "Next.js", "OpenAI API", "Tailwind CSS", "Vercel"],
+      "technologies": ["Supabase", "OpenAI API", "CSV", "Google Sheets"],
       "status": "Live",
       "achievements": [
-        "Built end-to-end customer feedback analysis system",
-        "Integrated OpenAI API for intelligent sentiment analysis",
-        "Deployed on Vercel with real-time data processing",
-        "Designed intuitive UI for product managers and stakeholders"
+        "Built ingestion pipelines for CSV and Google Sheets",
+        "Clustered feedback for insight discovery",
+        "Shipped an interactive dashboard using Supabase and the OpenAI API"
       ]
     },
     {
       "name": "Personal Website",
-      "description": "Modern portfolio website showcasing professional experience and projects",
+      "description": "Production portfolio built with Next.js and TypeScript.",
       "url": "https://github.com/JaiBhatia19/my_website",
-      "technologies": ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Resend API"],
+      "technologies": ["Next.js", "TypeScript", "Vercel"],
       "status": "Live",
       "achievements": [
-        "Built with Next.js 14 App Router for optimal performance",
-        "Integrated live GitHub data with API routes",
-        "Implemented contact form with email automation",
-        "Responsive design with dark/light theme toggle",
-        "SEO optimized with metadata and sitemap generation"
+        "Includes contact API and content ingestion",
+        "Achieved Lighthouse accessibility and SEO scores between 95 and 100",
+        "Deployed on Vercel"
       ]
     }
   ],
-  "conferenceExperience": [
-    {
-      "event": "Software Testing & QA Conference",
-      "role": "Speaker/Participant",
-      "date": "2024",
-      "location": "Virtual",
-      "topic": "AI-Powered Test Automation: The Future of QA",
-      "description": "Engaged with industry leaders and presented insights on AI-driven testing solutions"
-    },
-    {
-      "event": "Data Science & ML Meetup",
-      "role": "Presenter",
-      "date": "2023",
-      "location": "San Diego, CA",
-      "topic": "Building ML Models for Enterprise QA Automation",
-      "description": "Shared experiences in developing ML solutions for test automation challenges"
-    }
-  ],
+  "conferenceExperience": [],
   "additionalSkills": {
-    "languages": ["Python", "SQL", "JavaScript", "TypeScript", "HTML/CSS"],
-    "frameworks": ["React", "Next.js", "Node.js", "Express"],
-    "cloud": ["AWS (Lambda, S3, EC2)", "Vercel", "Netlify"],
-    "ai_ml": ["OpenAI API", "LangChain", "Hugging Face", "Machine Learning", "RAG"],
-    "tools": ["Git", "Docker", "Postman", "n8n", "HubSpot", "Sales Navigator"],
-    "databases": ["PostgreSQL", "MongoDB", "Redis"]
+    "languages": ["Python", "SQL"],
+    "frameworks": ["Next.js"],
+    "cloud": ["AWS Lambda", "S3", "EC2", "APIs", "webhooks", "event-driven workflows", "Terraform"],
+    "ai_ml": ["OpenAI API", "LangChain", "Hugging Face", "ML integration", "GenAI workflows", "RAG", "experimentation"],
+    "tools": ["n8n", "Supabase", "Postman", "Jira", "Confluence"],
+    "databases": []
   }
 }

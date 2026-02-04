@@ -24,7 +24,7 @@ export async function GET() {
 
     return NextResponse.json({
       name: 'Jai Bhatia',
-      headline: 'Sales Engineer & AI Solutions Architect | Building the future, one line of code at a time',
+      headline: 'Customer-facing technologist specializing in technical sales and applied AI',
       location: 'Los Angeles, CA',
       recentActivity: filteredPosts,
       lastUpdated: new Date().toISOString(),
@@ -36,7 +36,7 @@ export async function GET() {
     // Return emergency fallback data
     return NextResponse.json({
       name: 'Jai Bhatia',
-      headline: 'Sales Engineer & AI Solutions Architect | Building the future, one line of code at a time',
+      headline: 'Customer-facing technologist specializing in technical sales and applied AI',
       location: 'Los Angeles, CA',
       recentActivity: [{
         id: '1',

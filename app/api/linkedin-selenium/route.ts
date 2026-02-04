@@ -98,7 +98,7 @@ async function getFallbackContent() {
 
     return NextResponse.json({
       name: 'Jai Bhatia',
-      headline: 'Sales Engineer & AI Solutions Architect | Building the future, one line of code at a time',
+      headline: 'Customer-facing technologist specializing in technical sales and applied AI',
       location: 'Los Angeles, CA',
       recentActivity: [selectedPost],
       lastUpdated: new Date().toISOString(),
@@ -110,7 +110,7 @@ async function getFallbackContent() {
     // Ultimate fallback
     return NextResponse.json({
       name: 'Jai Bhatia',
-      headline: 'Sales Engineer & AI Solutions Architect | Building the future, one line of code at a time',
+      headline: 'Customer-facing technologist specializing in technical sales and applied AI',
       location: 'Los Angeles, CA',
       recentActivity: [{
         id: '1',

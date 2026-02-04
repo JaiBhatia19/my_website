@@ -19,15 +19,16 @@ export default async function AboutPage() {
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-lg max-w-none">
             <p>
-              I&apos;m a sales engineer and AI-minded solutions architect passionate about building 
-              products that solve real problems. With experience in both technical implementation 
-              and customer-facing roles, I bridge the gap between complex technology and business value.
+              I&apos;m a customer-facing technologist specializing in technical sales and applied AI, 
+              with experience designing enterprise solutions and delivering over 30 virtual demos for 
+              banking and insurance clients. I leverage automation and AI-enabled workflows to advance 
+              sales opportunities and generate qualified meetings across digital channels.
             </p>
             
             <p>
-              My approach combines deep technical knowledge with strong communication skills, 
-              allowing me to translate complex concepts into clear, actionable solutions for 
-              customers and stakeholders.
+              I work closely with marketing and ecosystem teams, translating customer needs into 
+              pilots and product enhancements—from technical discovery and proof-of-concept design 
+              to production-grade automation and ML features in enterprise environments.
             </p>
           </div>
         </div>
