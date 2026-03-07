@@ -92,7 +92,7 @@ export function Hero({ profile }: HeroProps) {
           >
             <div className="relative w-40 h-40 rounded-full overflow-hidden ring-4 ring-primary/30 shadow-2xl">
               <FallbackImage
-                src="/images/profile.jpg"
+                src="/profile.jpg"
                 alt={profile.name}
                 width={160}
                 height={160}

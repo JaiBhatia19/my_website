@@ -84,6 +84,7 @@ public/*
 !public/images/*
 !public/Jai_Bhatia_SE_Resume.pdf
 !public/og-default.png
+!public/profile.jpg
 
 # Storybook build outputs
 .out
