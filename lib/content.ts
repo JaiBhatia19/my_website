@@ -43,12 +43,13 @@ export interface ConferenceExperience {
 }
 
 export interface AdditionalSkills {
-  languages: string[];
-  frameworks: string[];
-  cloud: string[];
-  ai_ml: string[];
-  tools: string[];
-  databases: string[];
+  languages?: string[];
+  frameworks?: string[];
+  cloud?: string[];
+  ai_ml?: string[];
+  tools?: string[];
+  databases?: string[];
+  sales_gtm?: string[];
 }
 
 export interface Experience {

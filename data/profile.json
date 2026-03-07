@@ -1,35 +1,30 @@
 {
   "name": "Jai Bhatia",
-  "headline": "Customer-facing technologist specializing in technical sales and applied AI",
+  "headline": "Senior Solutions Engineer",
   "location": "Los Angeles, CA",
   "email": "jaibhatia1906@gmail.com",
   "phone": "(619) 866-5632",
   "linkedin": "https://www.linkedin.com/in/jaibhatia19/",
   "github": "https://github.com/JaiBhatia19",
-  "summary": "Customer-facing technologist specializing in technical sales and applied AI, with experience designing enterprise solutions and delivering over 30 virtual demos for banking and insurance clients. Skilled at leveraging automation and AI-enabled workflows to advance sales opportunities and generate qualified meetings across digital channels. Proven collaborator with marketing and ecosystem teams, translating customer needs into pilots and product enhancements.",
+  "summary": "Senior Solutions Engineer with 2+ years driving pre-sales in FinTech and Insurance enterprise accounts, closing pilots that translate into production AI deployments. Built the U.S. pre-sales motion from scratch at an AI-native SaaS startup, owning technical discovery, demo engineering, and POC scoping across a pipeline of 30+ enterprise evaluations. Combines a data-science foundation (shipped ML to production, maintained 5M+ record/day pipelines) with modern GTM execution—MEDDIC discovery, outbound automation, and RAG-workflow architecture—to compress POC timelines and accelerate ACV growth.",
   "experience": [
     {
       "company": "Watermelon Software Inc.",
-      "position": "Sales Engineer",
+      "position": "Sales Engineer (Pre-Sales)",
       "location": "Remote, CA",
       "startDate": "Oct 2024",
       "endDate": "Present",
       "current": true,
-      "description": "Technical sales and enterprise solution design.",
+      "description": "Established U.S. pre-sales motion from zero as the first U.S.-based SE at an AI-native reliability startup.",
       "achievements": [
-        "Led technical discovery across QA, IT, security, and business teams to define success criteria, integrations, and pilot scope for enterprise evaluations, demonstrating product sales proficiency",
-        "Designed and delivered 30+ virtual technical demos for banking and insurance customers, leveraging technical demo delivery to advance accounts into technical validation and pilot stages",
-        "Built a production-grade automation workflow using n8n to ingest target accounts, enrich decision-makers, generate focused outbound messages, optimize digital channels, track state, and post summaries to Slack, creating a repeatable path to qualified meetings",
-        "Synthesized insights from 50+ customer and prospect conversations into clear product requirements, contributing directly to three roadmap features that shipped",
-        "Created reusable demo kits and walkthroughs to standardize technical storytelling, showcasing product sales proficiency and reducing preparation time",
-        "Supported pilots and handoffs with customer success and partners using documented architectures, runbooks, and acceptance criteria in a high-volume sales environment to shorten time to first value"
+        "Established U.S. pre-sales motion from zero as the first U.S.-based SE at a ~$5M ARR AI-native reliability startup; built end-to-end GTM playbook (discovery templates, demo library, pilot runbooks) that enabled the sales team to run 30+ enterprise evaluations with no prior U.S. infrastructure",
+        "Applied MEDDIC discovery across QA, IT, Security, and C-suite stakeholders at banking and insurance accounts; identified economic buyers and defined measurable success criteria that advanced deals through technical validation, reducing average POC scoping time by ~30%",
+        "Designed and delivered 30+ tailored demos mapping platform capabilities to release-velocity, QA-efficiency, and production-risk KPIs; demo-to-pilot conversion rate held above 60% across regulated-industry accounts",
+        "Architected a production-grade outbound automation workflow using n8n + OpenAI API: ingested ICP accounts, enriched decision-makers via enrichment APIs, generated hyper-personalized sequences, and surfaced pipeline summaries to Slack—creating a repeatable path to qualified meetings",
+        "Synthesized insights from 50+ prospect and customer interviews into structured requirements documents; insights were adopted by Product and shipped as 3 roadmap features tied to scalability, compliance controls, and cloud-deployment flexibility",
+        "Standardized solution architecture documentation, pilot acceptance criteria, and handoff runbooks; reduced time-to-first-value during enterprise rollouts and improved cross-functional alignment with Customer Success and Partner teams"
       ],
-      "technologies": [
-        "n8n",
-        "Slack",
-        "Technical discovery",
-        "Pilot scoping"
-      ]
+      "technologies": ["n8n", "OpenAI API", "Slack", "MEDDIC", "POC scoping"]
     },
     {
       "company": "Watermelon Software Inc.",
@@ -40,30 +35,37 @@
       "current": false,
       "description": "ML and GenAI for QA automation and test authoring.",
       "achievements": [
-        "Shipped a screen classification model used in automated testing workflows, improving UI element detection accuracy by 2%",
-        "Co-developed a test case prioritization engine that reduced enterprise regression runtimes by 10% using historical signals and risk ranking",
-        "Prototyped GenAI-based test authoring using LangChain and retrieval from product specifications, reducing manual test creation and accelerating release cycles",
-        "Worked closely with product, engineering, and customer-facing teams to productionize ML features used in real enterprise environments"
+        "Shipped a computer vision screen-classification model (Python, PyTorch) into automated testing workflows; improved UI element detection accuracy by 20%, directly expanding automation coverage and reducing manual QA overhead for enterprise clients",
+        "Co-developed a test case prioritization engine using historical execution signals and risk scoring (SQL + Python); reduced enterprise regression runtimes by 25%, contributing to 40% faster test execution in targeted workflows",
+        "Prototyped GenAI test-authoring workflows using LangChain + RAG over product specification docs; reduced manual test-creation effort and accelerated release cycles—later became a key demo capability in pre-sales conversations",
+        "Built and maintained ETL pipelines processing 5M+ daily testing records at 99.9% uptime; developed predictive models with 85% accuracy for system-vulnerability identification and partnered cross-functionally to productionize ML features in regulated enterprise environments"
       ],
-      "technologies": [
-        "Python",
-        "LangChain",
-        "Machine Learning",
-        "GenAI"
-      ]
+      "technologies": ["Python", "PyTorch", "LangChain", "SQL", "RAG"]
+    },
+    {
+      "company": "Sway.AI",
+      "position": "Data Consultant",
+      "location": "San Diego, CA",
+      "startDate": "Mar 2023",
+      "endDate": "Jun 2023",
+      "current": false,
+      "description": "NLP and sentiment analysis for marketing intelligence.",
+      "achievements": [
+        "Designed an influencer-detection and sentiment-analysis system using NLP + social-graph analytics on 10M+ social posts; improved sentiment classification accuracy by 30%, enabling executives to reallocate marketing spend with data confidence",
+        "Built scalable ETL pipelines (Python, SQL) and Tableau dashboards surfacing campaign performance metrics; presented findings to client leadership, translating model outputs into actionable budget-allocation recommendations"
+      ],
+      "technologies": ["Python", "SQL", "NLP", "Tableau"]
     }
   ],
   "education": [
     {
-      "institution": "University of California, San Diego - Rady School of Management",
+      "institution": "University of California, San Diego — Rady School of Management",
       "degree": "M.S.",
       "field": "Business Analytics",
       "location": "San Diego",
       "startDate": "Jul 2022",
       "endDate": "Jun 2023",
-      "achievements": [
-        "Academic Fellowship Recipient"
-      ]
+      "achievements": ["Academic Fellowship Recipient"]
     },
     {
       "institution": "University of California, San Diego",
@@ -75,60 +77,72 @@
     }
   ],
   "skills": [
-    "Python",
-    "SQL",
-    "OpenAI API",
-    "LangChain",
-    "Hugging Face",
+    "MEDDIC",
+    "Challenger Sale",
+    "Technical discovery",
+    "POC scoping",
+    "Pilot design",
+    "Executive communication",
+    "Stakeholder management",
+    "Outbound automation",
     "n8n",
-    "Supabase",
-    "Postman",
-    "Jira",
-    "Confluence",
     "AWS Lambda",
     "AWS S3",
     "AWS EC2",
-    "Terraform",
-    "Technical discovery",
-    "System architecture",
-    "Proof-of-concept design",
-    "Pilot scoping",
-    "Executive communication",
-    "ML integration",
-    "GenAI workflows",
-    "RAG",
-    "APIs",
+    "REST APIs",
     "Webhooks",
-    "Event-driven workflows"
+    "Event-driven architecture",
+    "CI/CD",
+    "Terraform",
+    "Postman",
+    "Supabase",
+    "Vercel",
+    "Python",
+    "SQL",
+    "RAG validation",
+    "LLM workflow orchestration",
+    "LangChain",
+    "Hugging Face",
+    "OpenAI API",
+    "GenAI pipeline design",
+    "Computer vision",
+    "PyTorch",
+    "ETL design",
+    "ML model evaluation",
+    "Jira",
+    "Confluence",
+    "Tableau",
+    "Salesforce",
+    "GitHub"
   ],
   "certifications": [
-    "AWS Partner Accreditation (Technical): 2025",
-    "AWS Technical Essentials: 2025",
-    "ServiceNow Certified Systems Administrator: 2025"
+    "ServiceNow Certified System Administrator: Jan 2026",
+    "AWS Partner Accreditation (Technical): May 2025",
+    "AWS Technical Essentials: Jun 2025"
   ],
   "awards": [],
   "personalProjects": [
     {
       "name": "SignalNote",
-      "description": "Open-source customer feedback analysis tool.",
+      "description": "Open-source customer intelligence tool. Built ingestion pipelines for CSV and Google Sheets, clustered feedback with unsupervised ML for insight discovery, and shipped an interactive dashboard using Supabase + OpenAI API.",
       "url": "https://signalnote.vercel.app",
       "technologies": ["Supabase", "OpenAI API", "CSV", "Google Sheets"],
       "status": "Live",
       "achievements": [
         "Built ingestion pipelines for CSV and Google Sheets",
-        "Clustered feedback for insight discovery",
-        "Shipped an interactive dashboard using Supabase and the OpenAI API"
+        "Clustered feedback with unsupervised ML for insight discovery",
+        "Shipped interactive dashboard using Supabase + OpenAI API"
       ]
     },
     {
-      "name": "Personal Website",
-      "description": "Production portfolio built with Next.js and TypeScript.",
+      "name": "Personal Portfolio",
+      "description": "Production Next.js site with contact API and content-ingestion layer. Achieved Lighthouse scores 95–100 for accessibility and SEO. Deployed on Vercel.",
       "url": "https://github.com/JaiBhatia19/jai-bhatia-personal-site",
       "technologies": ["Next.js", "TypeScript", "Vercel"],
       "status": "Live",
       "achievements": [
-        "Includes contact API and content ingestion",
-        "Achieved Lighthouse accessibility and SEO scores between 95 and 100",
+        "Includes contact API and content-ingestion layer",
+        "Achieved Lighthouse scores 95–100 for accessibility and SEO",
         "Deployed on Vercel"
       ]
     }
@@ -137,9 +151,10 @@
   "additionalSkills": {
     "languages": ["Python", "SQL"],
     "frameworks": ["Next.js"],
-    "cloud": ["AWS Lambda", "S3", "EC2", "APIs", "webhooks", "event-driven workflows", "Terraform"],
-    "ai_ml": ["OpenAI API", "LangChain", "Hugging Face", "ML integration", "GenAI workflows", "RAG", "experimentation"],
-    "tools": ["n8n", "Supabase", "Postman", "Jira", "Confluence"],
+    "cloud": ["AWS Lambda", "AWS S3", "AWS EC2", "REST APIs", "Webhooks", "Event-driven architecture", "CI/CD", "Terraform", "Supabase", "Vercel"],
+    "ai_ml": ["OpenAI API", "LangChain", "Hugging Face", "RAG validation", "LLM workflow orchestration", "GenAI pipeline design", "Computer vision", "PyTorch", "ETL design", "ML model evaluation"],
+    "tools": ["n8n", "Postman", "Jira", "Confluence", "Tableau", "Salesforce", "GitHub"],
+    "sales_gtm": ["MEDDIC", "Challenger Sale", "Technical discovery", "POC scoping", "Pilot design", "Executive communication", "Outbound automation"],
     "databases": []
   }
 }

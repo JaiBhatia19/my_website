@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
-const RESUME_FILENAME = 'resume.pdf';
+const RESUME_FILENAME = 'Jai_Bhatia_SE_Resume.pdf';
 
 export async function GET() {
   try {
@@ -11,7 +11,7 @@ export async function GET() {
     return new NextResponse(new Uint8Array(resumeBuffer), {
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': 'inline; filename="Jai_Bhatia_Resume.pdf"',
+        'Content-Disposition': 'inline; filename="Jai_Bhatia_SE_Resume.pdf"',
         'Cache-Control': 'public, max-age=3600, s-maxage=3600',
       },
     });

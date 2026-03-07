@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, FileDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -143,11 +143,12 @@ export function Navbar() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="hidden sm:flex glass-card border-primary/20 hover:border-primary/40"
+                  className="hidden sm:flex glass-card border-primary/20 hover:border-primary/40 hover:shadow-[0_0_16px_rgba(99,102,241,0.25)] transition-all duration-300"
                   asChild
                 >
-                  <a href="/resume" target="_blank" rel="noopener noreferrer">
-                    📄 Resume
+                  <a href="/resume" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <FileDown className="h-4 w-4" />
+                    Resume
                   </a>
                 </Button>
               </motion.div>
@@ -240,8 +241,9 @@ export function Navbar() {
                       className="w-full justify-start glass-card border-primary/20"
                       asChild
                     >
-                      <a href="/resume" target="_blank" rel="noopener noreferrer">
-                        📄 Resume
+                      <a href="/resume" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                        <FileDown className="h-4 w-4" />
+                        Resume
                       </a>
                     </Button>
                   </motion.div>

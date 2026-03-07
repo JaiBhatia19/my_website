@@ -4,7 +4,7 @@ import { getProfileData } from '@/lib/content';
 
 export const metadata = {
   title: 'Experience',
-  description: 'My professional journey in sales engineering, data science, and AI solutions.',
+  description: 'Senior Solutions Engineer at Watermelon Software. Data Scientist, Sway.AI. Pre-sales, MEDDIC discovery, POC scoping, demo engineering.',
 };
 
 export default async function ExperiencePage() {
@@ -12,10 +12,10 @@ export default async function ExperiencePage() {
 
   return (
     <Section>
-      <SectionHeader
-        title="Professional Experience"
-        description="Building solutions that drive business value through technology"
-      />
+        <SectionHeader
+          title="Professional Experience"
+          description="Pre-sales, data science, and AI—from Watermelon Software to Sway.AI"
+        />
       
       <Timeline experiences={profile.experience} />
     </Section>

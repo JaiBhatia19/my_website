@@ -15,36 +15,48 @@ const inter = Inter({
   display: 'swap',
 });
 
+const siteUrl = 'https://jaibhatia.dev';
+const defaultTitle = 'Jai Bhatia - Senior Solutions Engineer | Pre-Sales, FinTech, AI';
+const defaultDescription = 'Senior Solutions Engineer with 2+ years driving pre-sales in FinTech and Insurance. MEDDIC discovery, demo engineering, POC scoping. Built U.S. pre-sales motion at AI-native SaaS startup.';
+
 export const metadata: Metadata = {
   title: {
-    default: 'Jai Bhatia - Customer-facing technologist specializing in technical sales and applied AI',
+    default: defaultTitle,
     template: '%s | Jai Bhatia',
   },
-  description: 'Customer-facing technologist specializing in technical sales and applied AI. Enterprise solutions, technical demos, and AI-enabled workflows.',
+  description: defaultDescription,
   keywords: [
     'Jai Bhatia',
+    'Senior Solutions Engineer',
+    'Solutions Engineer',
+    'Pre-Sales',
     'Sales Engineer',
-    'Technical Sales',
-    'Applied AI',
-    'Enterprise Solutions',
-    'Technical Demos',
-    'n8n',
+    'FinTech',
+    'Insurance',
+    'MEDDIC',
+    'POC scoping',
+    'Technical discovery',
+    'Demo engineering',
+    'AI',
     'LangChain',
+    'n8n',
+    'RAG',
+    'Enterprise SaaS',
   ],
   authors: [{ name: 'Jai Bhatia' }],
   creator: 'Jai Bhatia',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://jaibhatia.dev',
-    title: 'Jai Bhatia - Customer-facing technologist specializing in technical sales and applied AI',
-    description: 'Customer-facing technologist specializing in technical sales and applied AI. Enterprise solutions, technical demos, and AI-enabled workflows.',
+    url: siteUrl,
+    title: defaultTitle,
+    description: defaultDescription,
     siteName: 'Jai Bhatia',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jai Bhatia - Customer-facing technologist specializing in technical sales and applied AI',
-    description: 'Customer-facing technologist specializing in technical sales and applied AI. Enterprise solutions, technical demos, and AI-enabled workflows.',
+    title: defaultTitle,
+    description: defaultDescription,
     creator: '@jaibhatia19',
   },
   robots: {
@@ -58,8 +70,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // Add google-site-verification meta when you have a code from Search Console
-  // verification: { google: 'your-code-here' },
 };
 
 export default function RootLayout({
@@ -71,7 +81,40 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="canonical" href="https://jaibhatia.dev" />
+        <link rel="canonical" href={siteUrl} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Jai Bhatia',
+              jobTitle: 'Senior Solutions Engineer',
+              description: defaultDescription,
+              url: siteUrl,
+              sameAs: [
+                'https://www.linkedin.com/in/jaibhatia19/',
+                'https://github.com/JaiBhatia19',
+              ],
+              knowsAbout: [
+                'Pre-Sales',
+                'Technical Discovery',
+                'POC Scoping',
+                'MEDDIC',
+                'FinTech',
+                'Insurance',
+                'AI',
+                'LangChain',
+                'n8n',
+                'RAG',
+              ],
+              worksFor: {
+                '@type': 'Organization',
+                name: 'Watermelon Software Inc.',
+              },
+            }),
+          }}
+        />
       </head>
       <body className="min-h-screen bg-background font-sans antialiased noise-texture">
         <ScrollProgress />

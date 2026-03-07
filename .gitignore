@@ -76,10 +76,14 @@ dist
 
 # Gatsby files
 .cache/
-# Ignore public folder contents except resume and favicon (so /resume and favicon work in production)
+# Ignore public folder contents except essential assets
 public/*
 !public/resume.pdf
 !public/favicon.svg
+!public/images/
+!public/images/*
+!public/Jai_Bhatia_SE_Resume.pdf
+!public/og-default.png
 
 # Storybook build outputs
 .out

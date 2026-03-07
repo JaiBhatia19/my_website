@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, FileDown, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { FallbackImage } from '@/components/fallback-image';
 import { getProfileData } from '@/lib/content';
@@ -19,9 +19,9 @@ export function Hero({ profile }: HeroProps) {
   const opacity = useTransform(scrollY, [0, 200], [1, 0.8]);
 
   const taglines = [
+    "Senior Solutions Engineer",
     "Sales Engineer",
-    "Solutions Architect", 
-    "AI-Driven Builder"
+    "Pre-Sales"
   ];
 
   useEffect(() => {
@@ -152,11 +152,20 @@ export function Hero({ profile }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button asChild size="lg" className="group glass-card border-primary/20 hover:border-primary/40">
-                <a href="/resume" target="_blank" rel="noopener noreferrer">
-                  📄 Download Resume
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="rounded-lg"
+            >
+              <Button
+                asChild
+                size="lg"
+                className="group glass-card border-primary/20 hover:border-primary/50 hover:shadow-[0_0_24px_rgba(var(--primary),0.35)] transition-all duration-300"
+              >
+                <a href="/resume" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <FileDown className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                  Download Resume
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
             </motion.div>

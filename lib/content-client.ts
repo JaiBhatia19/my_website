@@ -8,16 +8,16 @@ export async function getProfileDataClient() {
     return await response.json();
   } catch (error) {
     console.error('Error fetching profile data:', error);
-    // Return fallback data (aligned with data/profile.json; resume.pdf is canonical for accomplishments)
+    // Return fallback data (aligned with Jai_Bhatia_SE_Resume.pdf)
     return {
       name: 'Jai Bhatia',
-      headline: 'Customer-facing technologist specializing in technical sales and applied AI',
+      headline: 'Senior Solutions Engineer',
       location: 'Los Angeles, CA',
       email: 'jaibhatia1906@gmail.com',
       phone: '(619) 866-5632',
       linkedin: 'https://www.linkedin.com/in/jaibhatia19/',
       github: 'https://github.com/JaiBhatia19',
-      summary: 'Customer-facing technologist specializing in technical sales and applied AI, with experience designing enterprise solutions and delivering over 30 virtual demos for banking and insurance clients. Skilled at leveraging automation and AI-enabled workflows to advance sales opportunities and generate qualified meetings across digital channels.',
+      summary: 'Senior Solutions Engineer with 2+ years driving pre-sales in FinTech and Insurance enterprise accounts, closing pilots that translate into production AI deployments. Built the U.S. pre-sales motion from scratch at an AI-native SaaS startup.',
       experience: [],
       education: [],
       skills: [],

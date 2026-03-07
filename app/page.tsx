@@ -14,6 +14,7 @@ import {
   Linkedin, 
   TrendingUp
 } from 'lucide-react';
+import { SkillVisualizer } from '@/components/skill-visualizer';
 
 export default function HomePage() {
   const { linkedinData } = useLiveData();
@@ -46,24 +47,24 @@ export default function HomePage() {
       <Section id="what-i-do">
         <SectionHeader
           title="What I Do"
-          description="Turning ideas into reality with a mix of technical chops and business sense"
+          description="Pre-sales, technical discovery, and POC scoping—turning enterprise evaluations into production deployments"
         />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <FeatureCard
             icon={<Wrench className="h-6 w-6" />}
-            title="Solutions Engineering"
-            description="Crafting technical solutions that actually work in the real world. No buzzwords, just results."
+            title="Pre-Sales & Demo Engineering"
+            description="Technical discovery, tailored demos, and pilot scoping across FinTech and Insurance. MEDDIC-driven, 60%+ demo-to-pilot conversion."
           />
           <FeatureCard
             icon={<Brain className="h-6 w-6" />}
-            title="AI & Vibe Coding"
-            description="Building AI-powered tools that solve real problems. Think SignalNote, not another ChatGPT wrapper."
+            title="AI & Data Science"
+            description="Shipped ML to production, 5M+ record/day pipelines, RAG workflows. LangChain, PyTorch, GenAI—applied to enterprise QA and automation."
           />
           <FeatureCard
             icon={<Handshake className="h-6 w-6" />}
-            title="Strategic Partnerships"
-            description="Connecting the dots between tech and business to create win-win scenarios."
+            title="GTM & Outbound Automation"
+            description="Built end-to-end GTM playbook from zero. n8n + OpenAI workflows for ICP enrichment, hyper-personalized sequences, pipeline visibility."
           />
         </div>
       </Section>
@@ -209,56 +210,13 @@ export default function HomePage() {
       </div>
     </Section>
 
-      {/* Skills Section */}
+      {/* Skills Section - Bento Grid */}
       <Section>
         <SectionHeader
           title="Technical Expertise"
-          description="The tools and tech I use to turn coffee into code"
+          description="Sales & GTM, cloud architecture, AI/ML, and modern tooling—aligned to enterprise pre-sales"
         />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-card rounded-lg p-6 border">
-            <h3 className="font-semibold mb-4 flex items-center">
-              <Brain className="h-5 w-5 text-primary mr-2" />
-              AI & Machine Learning
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {profile.additionalSkills?.ai_ml?.map((skill: string, index: number) => (
-                <span key={index} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          <div className="bg-card rounded-lg p-6 border">
-            <h3 className="font-semibold mb-4 flex items-center">
-              <Wrench className="h-5 w-5 text-primary mr-2" />
-              Development Stack
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {profile.additionalSkills?.frameworks?.map((skill: string, index: number) => (
-                <span key={index} className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          <div className="bg-card rounded-lg p-6 border">
-            <h3 className="font-semibold mb-4 flex items-center">
-              <TrendingUp className="h-5 w-5 text-primary mr-2" />
-              Cloud & DevOps
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {profile.additionalSkills?.cloud?.map((skill: string, index: number) => (
-                <span key={index} className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <SkillVisualizer additionalSkills={profile.additionalSkills} />
       </Section>
 
       {/* Personal Projects Section */}
@@ -308,29 +266,28 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Social Proof Section */}
+      {/* Impact Metrics - from resume */}
       <Section>
         <SectionHeader
           title="Impact Metrics"
           description="Quantifiable results from my work"
         />
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
           <div className="text-center">
-            <div className="text-2xl font-bold text-muted-foreground">30+</div>
-            <div className="text-sm text-muted-foreground">Discovery Sessions</div>
+            <div className="text-2xl font-bold text-primary">30+</div>
+            <div className="text-sm text-muted-foreground">Enterprise Evaluations</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-muted-foreground">20%</div>
-            <div className="text-sm text-muted-foreground">ML Accuracy Improvement</div>
+            <div className="text-2xl font-bold text-primary">60%+</div>
+            <div className="text-sm text-muted-foreground">Demo-to-Pilot Conversion</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-muted-foreground">25%</div>
-            <div className="text-sm text-muted-foreground">Runtime Reduction</div>
+            <div className="text-2xl font-bold text-primary">~30%</div>
+            <div className="text-sm text-muted-foreground">POC Scoping Time Reduced</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-muted-foreground">3</div>
-            <div className="text-sm text-muted-foreground">Product Features Shipped</div>
+            <div className="text-2xl font-bold text-primary">3</div>
+            <div className="text-sm text-muted-foreground">Roadmap Features Shipped</div>
           </div>
         </div>
       </Section>

@@ -1,35 +1,43 @@
 import { Section, SectionHeader } from '@/components/server-section';
+import { getProfileData } from '@/lib/content';
 
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'About',
-  description: 'Learn more about my background, values, and the tools I use to build great products.',
+  description: 'Senior Solutions Engineer with 2+ years driving pre-sales in FinTech and Insurance. MEDDIC discovery, demo engineering, POC scoping.',
 };
 
 export default async function AboutPage() {
+  const profile = await getProfileData();
+
   return (
     <div className="space-y-16">
       <Section>
         <SectionHeader
           title="About Me"
-          description="Learn more about my background, values, and the tools I use to build great products."
+          description="Senior Solutions Engineer driving pre-sales in FinTech and Insurance"
         />
         
         <div className="max-w-4xl mx-auto">
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none dark:prose-invert">
+            <p>{profile.summary}</p>
             <p>
-              I&apos;m a customer-facing technologist specializing in technical sales and applied AI, 
-              with experience designing enterprise solutions and delivering over 30 virtual demos for 
-              banking and insurance clients. I leverage automation and AI-enabled workflows to advance 
-              sales opportunities and generate qualified meetings across digital channels.
+              I combine a data-science foundation—shipped ML to production, maintained 5M+ record/day pipelines—with modern GTM execution: MEDDIC discovery, outbound automation, and RAG-workflow architecture to compress POC timelines and accelerate ACV growth.
             </p>
-            
-            <p>
-              I work closely with marketing and ecosystem teams, translating customer needs into 
-              pilots and product enhancements—from technical discovery and proof-of-concept design 
-              to production-grade automation and ML features in enterprise environments.
-            </p>
+            {profile.education?.length ? (
+              <div className="mt-8">
+                <h3 className="text-lg font-semibold mb-4">Education</h3>
+                <ul className="space-y-2">
+                  {profile.education.map((edu, i) => (
+                    <li key={i}>
+                      <strong>{edu.degree} {edu.field}</strong> — {edu.institution} ({edu.startDate} – {edu.endDate})
+                      {edu.achievements?.length ? ` · ${edu.achievements.join(', ')}` : ''}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </div>
       </Section>
