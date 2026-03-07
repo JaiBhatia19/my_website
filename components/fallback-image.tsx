@@ -48,6 +48,7 @@ export function FallbackImage({
       priority={priority}
       sizes={sizes}
       quality={quality}
+      unoptimized
       onError={() => setHasError(true)}
       onLoad={() => setHasError(false)}
     />
